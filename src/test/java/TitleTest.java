@@ -5,9 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-import java.io.File;
-import java.net.URL;
-
 import static org.example.utils.Constants.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
