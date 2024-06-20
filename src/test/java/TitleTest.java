@@ -3,33 +3,33 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import io.github.bonigarcia.wdm.WebDriverManager;
 
+import java.io.File;
+import java.net.URL;
+
+import static org.example.utils.Constants.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TitleTest {
 
     private WebDriver driver;
-    public static String EXPECTED_TITLE = "MozgoQuiz в Вроцлаве - интеллектуальный квиз с вопросами и ответами";
-
 
     @BeforeEach
     public void setUp() {
-        System.setProperty("webdriver.chrome.driver", "I:\\chromedriver.exe");
+        WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
+        driver.get("https://wro.mzgb.net/");
+        driver.manage().window().maximize();
     }
 
     @Test
     public void testTitle() {
-        driver.get("https://wro.mzgb.net/");
-        driver.manage().window().maximize();
-        // Проверка заголовка страницы
-        assertEquals(EXPECTED_TITLE, driver.getTitle());
-
+        assertEquals(TITLE, driver.getTitle());
     }
 
     @AfterEach
     public void tearDown() {
-        // Закрытие браузера после выполнения каждого теста
         if (driver != null) {
             driver.quit();
         }
