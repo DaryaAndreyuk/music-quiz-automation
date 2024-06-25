@@ -28,7 +28,6 @@ public class UpcomingGamesPage extends AbstractComponent {
     @FindBy(css = "div[class='p-5 relative item']")
     List<WebElement> upcomingGames;
 
-    //<img src="/img/icons/cross-white.svg" class="absolute text-white pin-t pin-r mr-2 mt-2 cursor-pointer text-xl z-50 h-4" xpath="1">
     @FindBy(xpath = "//img[contains(@src, 'cross')]")
     WebElement closeCookie;
 
