@@ -28,6 +28,10 @@ public class UpcomingGamesPage extends AbstractComponent {
     @FindBy(css = "div[class='p-5 relative item']")
     List<WebElement> upcomingGames;
 
+    //<img src="/img/icons/cross-white.svg" class="absolute text-white pin-t pin-r mr-2 mt-2 cursor-pointer text-xl z-50 h-4" xpath="1">
+    @FindBy(xpath = "//img[contains(@src, 'cross')]")
+    WebElement closeCookie;
+
     By accountGamesLocator = By.cssSelector("a[href='/account/games']");
     By buttonForRegisterLocator = By.cssSelector(".reg-event-btn");
 
@@ -43,11 +47,13 @@ public class UpcomingGamesPage extends AbstractComponent {
                 game.findElement(By.cssSelector("p")).getText().contains(gameType)).findFirst().orElse(null);
     }
 
-    public RegisterGamePage clickOnRegisterButton(WebElement gameElement){
+    public RegisterGamePage clickOnRegisterButton(WebElement gameElement) {
+        if (closeCookie.isDisplayed()) {
+            closeCookie.click();
+        }
         WebElement button = gameElement.findElement(buttonForRegisterLocator);
         waitForElementToAppear(buttonForRegisterLocator);
         button.click();
         return new RegisterGamePage(driver);
     }
-
 }

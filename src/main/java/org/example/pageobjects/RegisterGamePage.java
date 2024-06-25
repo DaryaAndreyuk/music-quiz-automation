@@ -27,28 +27,25 @@ public class RegisterGamePage extends AbstractComponent {
     @FindBy(id = "email")
     WebElement emailInput;
 
-    @FindBy(css = "select[class*='py-2']")
+    @FindBy(css = "select")
     WebElement teamsDropdown;
 
-    @FindBy(xpath = "//div[@class='flex justify-between items-center pt-2']//div[2]")
+    @FindBy(xpath = "//img[contains(@src, 'plus')]")
     WebElement plusElement;
 
-    @FindBy(css = "div[class='flex mb-0 w-full'] button[class*='cursor-pointer']")
+    @FindBy(xpath = "//button[text()='Далее']")
     WebElement furtherButton;
 
     @FindBy(css = "button[class*='reg-event-complete']")
     WebElement finalRegButton;
 
     public void fillPersonalData(String name, String phone, String email) {
-        if (fioInput.getAttribute("value").isEmpty())
-            fioInput.sendKeys(name);
-
-        if (phoneInput.getAttribute("value").isEmpty())
-            phoneInput.sendKeys(phone);
-
-        if (emailInput.getAttribute("value").isEmpty())
-            emailInput.sendKeys(email);
-
+        fioInput.clear();
+        fioInput.sendKeys(name);
+        phoneInput.clear();
+        phoneInput.sendKeys(phone);
+        emailInput.clear();
+        emailInput.sendKeys(email);
         furtherButton.click();
     }
 
@@ -63,5 +60,9 @@ public class RegisterGamePage extends AbstractComponent {
 
     public void registerTeam() {
         finalRegButton.click();
+    }
+
+    public WebElement getFinalRegButton() {
+        return finalRegButton;
     }
 }

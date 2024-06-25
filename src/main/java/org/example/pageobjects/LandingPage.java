@@ -25,14 +25,14 @@ public class LandingPage extends AbstractComponent {
     @FindBy(id = "password")
     WebElement passwordElement;
 
-    @FindBy(css = "button[class*='hover-up-mod']")
-    WebElement submitElement;
+    @FindBy(xpath = "//button[text()='Войти']")
+    WebElement submitButton;
 
     public UpcomingGamesPage loginApplication(String userEmail, String userPassword) {
         authClickElement.click();
         emailElement.sendKeys(userEmail);
         passwordElement.sendKeys(userPassword);
-        submitElement.click();
+        submitButton.click();
         return new UpcomingGamesPage(driver);
     }
 }
