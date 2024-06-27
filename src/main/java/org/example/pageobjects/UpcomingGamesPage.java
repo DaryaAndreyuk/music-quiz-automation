@@ -34,11 +34,10 @@ public class UpcomingGamesPage extends AbstractComponent {
     By accountGamesLocator = By.cssSelector("a[href='/account/games']");
     By buttonForRegisterLocator = By.cssSelector(".reg-event-btn");
 
-    public List<WebElement> getUpcomingGamesList() {
+    public void getUpcomingGamesList() {
         waitForElementToAppear(accountGamesLocator);
         accountGamesElement.click();
         upcomingGamesElement.click();
-        return upcomingGames;
     }
 
     public WebElement getGameByType(String gameType) {

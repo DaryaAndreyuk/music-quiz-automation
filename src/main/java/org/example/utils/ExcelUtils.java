@@ -16,7 +16,7 @@ import static org.example.utils.Constants.SHEET_DATA_FILE;
 public class ExcelUtils {
 
     public static Map<String, String> getExcelDataToMap(String filePath) {
-        Map<String, String> dataMap = new HashMap<String, String>();
+        Map<String, String> dataMap = new HashMap<>();
 
         try (InputStream fis = new FileInputStream(filePath); Workbook workbook = new XSSFWorkbook(fis)) {
             Sheet sheet = workbook.getSheetAt(0);

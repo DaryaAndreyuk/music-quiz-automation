@@ -24,7 +24,7 @@ public class RegistrationTeamTest extends BaseTest {
         LandingPage landingPage = new LandingPage(driver);
         UpcomingGamesPage upcomingGamesPage = landingPage.loginApplication(dataMap.get("Email"), dataMap.get("Password"));
 
-        List<WebElement> games = upcomingGamesPage.getUpcomingGamesList();
+        upcomingGamesPage.getUpcomingGamesList();
 
         WebElement gameElement = upcomingGamesPage.getGameByType(MOZGO_QUIZ_GAME_TYPE);
 
