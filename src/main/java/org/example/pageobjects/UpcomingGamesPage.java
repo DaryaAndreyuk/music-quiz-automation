@@ -28,15 +28,14 @@ public class UpcomingGamesPage extends AbstractComponent {
     @FindBy(css = "div[class='p-5 relative item']")
     List<WebElement> upcomingGames;
 
-    @FindBy(xpath = "//img[contains(@src, 'cross')]")
-    WebElement closeCookie;
-
     By accountGamesLocator = By.cssSelector("a[href='/account/games']");
     By buttonForRegisterLocator = By.cssSelector(".reg-event-btn");
 
     public void getUpcomingGamesList() {
         waitForElementToAppear(accountGamesLocator);
         accountGamesElement.click();
+        waitForElementToBeClickable(preloaderLocator);
+        waitForWebElementToBeClickable(upcomingGamesElement);
         upcomingGamesElement.click();
     }
 
@@ -46,9 +45,7 @@ public class UpcomingGamesPage extends AbstractComponent {
     }
 
     public RegisterGamePage clickOnRegisterButton(WebElement gameElement) {
-        if (closeCookie.isDisplayed()) {
-            closeCookie.click();
-        }
+        closeCookieAlert();
         WebElement button = gameElement.findElement(buttonForRegisterLocator);
         waitForElementToAppear(buttonForRegisterLocator);
         button.click();

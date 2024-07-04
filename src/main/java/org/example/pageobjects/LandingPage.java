@@ -35,4 +35,12 @@ public class LandingPage extends AbstractComponent {
         submitButton.click();
         return new UpcomingGamesPage(driver);
     }
+
+    public String getEmail() {
+        return emailElement.getAttribute("value");
+    }
+
+    public String getPassword() {
+        return passwordElement.getAttribute("value");
+    }
 }
