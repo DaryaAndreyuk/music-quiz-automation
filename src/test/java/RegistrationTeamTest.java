@@ -2,6 +2,8 @@ import basecomponents.BaseTest;
 import org.example.pageobjects.LandingPage;
 import org.example.pageobjects.RegisterGamePage;
 import org.example.pageobjects.UpcomingGamesPage;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.openqa.selenium.WebElement;
 import org.junit.jupiter.api.Test;
 
@@ -15,13 +17,14 @@ import org.example.utils.ExcelUtils;
 public class RegistrationTeamTest extends BaseTest {
 
     @Test
+    @Tag("smoke")
+    @DisplayName("Verify team registration process")
     public void registerTeamValidation() {
 
         Map<String, String> dataMap = ExcelUtils.getExcelDataToMap(ExcelUtils.getPathToResourceFile(SHEET_DATA_FILE));
         LandingPage landingPage = new LandingPage(driver);
         landingPage.closeCookieAlert();
         UpcomingGamesPage upcomingGamesPage = landingPage.loginApplication(dataMap.get(EMAIL), dataMap.get(PASSWORD));
-        upcomingGamesPage.closeCookieAlert();
         upcomingGamesPage.getUpcomingGamesList();
         WebElement gameElement = upcomingGamesPage.getGameByType(MOZGO_QUIZ_GAME_TYPE);
 
@@ -39,6 +42,8 @@ public class RegistrationTeamTest extends BaseTest {
     }
 
     @Test
+    @Tag("positive")
+    @DisplayName("Verify login data in input fields matches Excel data")
     public void loginDataInExcelValidation() {
         Map<String, String> dataMap = ExcelUtils.getExcelDataToMap(ExcelUtils.getPathToResourceFile(SHEET_DATA_FILE));
         LandingPage landingPage = new LandingPage(driver);
@@ -49,6 +54,8 @@ public class RegistrationTeamTest extends BaseTest {
     }
 
     @Test
+    @Tag("positive")
+    @DisplayName("Verify name, phone, email data in input fields matches Excel data")
     public void personalDataInExcelValidation() {
         RegisterGamePage registerGamePage = initializeRegisterPage();
         Map<String, String> dataMap = ExcelUtils.getExcelDataToMap(ExcelUtils.getPathToResourceFile(SHEET_DATA_FILE));
@@ -61,6 +68,8 @@ public class RegistrationTeamTest extends BaseTest {
     }
 
     @Test
+    @Tag("positive")
+    @DisplayName("Verify team name and number of teammates in input fields matches Excel data")
     public void teamDataInExcelValidation() {
         Map<String, String> dataMap = ExcelUtils.getExcelDataToMap(ExcelUtils.getPathToResourceFile(SHEET_DATA_FILE));
         RegisterGamePage registerGamePage = initializeRegisterPage();
