@@ -1,7 +1,6 @@
 package org.example.utils;
 
 public final class Constants {
-    public static final String TITLE = "MozgoQuiz в Вроцлаве - интеллектуальный квиз с вопросами и ответами";
     public static final String MOZGO_QUIZ_GAME_TYPE = "Music Quiz";
     public static final String MOZGO_QUIZ_URL = "https://pzn.mzgb.net/";
     public static final String SHEET_DATA_FILE = "Sheet.xlsx";
