@@ -3,7 +3,8 @@ import org.example.pageobjects.RegisterGamePage;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import io.qameta.allure.Description;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -37,18 +38,23 @@ public class ErrorValidationTest extends BaseTest {
         validatePersonalDataError("TestName", "375294999632", "", "Заполните, пожалуйста, все необходимые поля.");
     }
 
-    @Test
+    @ParameterizedTest
     @Tag("negative")
     @DisplayName("Verify error message for invalid email format")
-    public void emailFormatErrorValidation() {
-        validatePersonalDataError("dfdsl", "375294999632", "fFMG.COSPDO", "Email неверного формата.");
+    @ValueSource(strings = {
+            "plainaddress",
+            "missingatsymbol.com"
+    })
+    void emailFormatErrorValidation(String email) {
+        validatePersonalDataError("dfdsl", "375294999632", email, "Email неверного формата.");
     }
 
-    @Test
+    @ParameterizedTest
     @Tag("negative")
     @DisplayName("Verify error message for invalid phone format")
-    public void phoneFormatErrorValidation() {
-        validatePersonalDataError("dfdsl", "1", "dsfd@fgfds.com", "Укажите полноценный номер телефона.");
+    @ValueSource(strings = {"1", "1234", "12345678"})
+    void phoneFormatErrorValidation(String phoneNumber) {
+        validatePersonalDataError("dfdsl", phoneNumber, "dsfd@fgfds.com", "Укажите полноценный номер телефона.");
     }
 
     @Test
