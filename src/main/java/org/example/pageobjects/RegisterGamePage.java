@@ -1,13 +1,15 @@
 package org.example.pageobjects;
 
 import org.example.utils.AbstractComponent;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
-import static org.example.utils.Constants.MINIMUM_NUMBER_OF_PLAYERS;
+import java.util.Arrays;
+import java.util.List;
+
+import static org.example.utils.Constants.*;
 
 public class RegisterGamePage extends AbstractComponent {
     WebDriver driver;
@@ -27,8 +29,14 @@ public class RegisterGamePage extends AbstractComponent {
     @FindBy(id = "email")
     WebElement emailInput;
 
+    @FindBy(id = "team-name")
+    WebElement teamNameInput;
+
     @FindBy(css = "select")
     WebElement teamsDropdown;
+
+    @FindBy(css = "select")
+    List<WebElement> listOfTeams;
 
     @FindBy(xpath = "//img[contains(@src, 'plus')]")
     WebElement plusElement;
@@ -39,23 +47,65 @@ public class RegisterGamePage extends AbstractComponent {
     @FindBy(css = "button[class*='reg-event-complete']")
     WebElement finalRegButton;
 
+    @FindBy(id = "one")
+    WebElement numberOfPlayers;
+
     public void fillPersonalData(String name, String phone, String email) {
-        fioInput.clear();
-        fioInput.sendKeys(name);
-        phoneInput.clear();
-        phoneInput.sendKeys(phone);
-        emailInput.clear();
-        emailInput.sendKeys(email);
+        clearInputs();
+        fillInputField(fioInput, name);
+        fillInputField(phoneInput, phone);
+        fillInputField(emailInput, email);
+    }
+
+    public void clickFurtherButton() {
         furtherButton.click();
+    }
+
+    private void fillInputField(WebElement inputField, String value) {
+        if (value.isEmpty()) {
+            inputField.sendKeys(" ");
+            inputField.sendKeys(Keys.BACK_SPACE);
+        } else {
+            inputField.sendKeys(value);
+        }
+    }
+
+    private void clearInputs() {
+        fioInput.clear();
+        phoneInput.clear();
+        emailInput.clear();
     }
 
     public void fillTeamData(String teamName, int numberOfPlayers) {
         Select teamDropdown = new Select(teamsDropdown);
-        teamDropdown.selectByVisibleText(teamName);
-        int numberOfClicks = numberOfPlayers - MINIMUM_NUMBER_OF_PLAYERS;
-        for (int i = 0; i < numberOfClicks; i++)
+        if (!teamName.isEmpty()) {
+            List<String> values = listOfTeams.stream()
+                    .flatMap(element -> new Select(element).getOptions().stream())
+                    .map(WebElement::getText)
+                    .toList();
+
+            if (values.contains(teamName)) {
+                teamDropdown.selectByVisibleText(teamName);
+            } else {
+                selectCreateNewOption(teamDropdown, teamNameInput, teamName);
+            }
+        } else {
+            selectCreateNewOption(teamDropdown, teamNameInput, " ");
+            teamNameInput.sendKeys(Keys.BACK_SPACE);
+        }
+
+        clickPlusElement(numberOfPlayers - MINIMUM_NUMBER_OF_PLAYERS);
+    }
+
+    private void selectCreateNewOption(Select teamDropdown, WebElement teamNameInput, String teamName) {
+        teamDropdown.selectByVisibleText(CREATE_NEW_OPTION);
+        teamNameInput.sendKeys(teamName);
+    }
+
+    private void clickPlusElement(int numberOfClicks) {
+        for (int i = 0; i < numberOfClicks; i++) {
             plusElement.click();
-        furtherButton.click();
+        }
     }
 
     public void registerTeam() {
@@ -64,5 +114,25 @@ public class RegisterGamePage extends AbstractComponent {
 
     public WebElement getFinalRegButton() {
         return finalRegButton;
+    }
+
+    public String getFio() {
+        return fioInput.getAttribute("value");
+    }
+
+    public String getPhone() {
+        return phoneInput.getAttribute("value");
+    }
+
+    public String getEmail() {
+        return emailInput.getAttribute("value");
+    }
+
+    public String getTeamName() {
+        return teamNameInput.getAttribute("value");
+    }
+
+    public String getNumberOfPlayers() {
+        return Arrays.stream(numberOfPlayers.getText().split(" ")).toList().get(0);
     }
 }

@@ -11,12 +11,11 @@ import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 
-import static org.example.utils.Constants.SHEET_DATA_FILE;
 
 public class ExcelUtils {
+    public static Map<String, String> dataMap = new HashMap<>();
 
     public static Map<String, String> getExcelDataToMap(String filePath) {
-        Map<String, String> dataMap = new HashMap<>();
 
         try (InputStream fis = new FileInputStream(filePath); Workbook workbook = new XSSFWorkbook(fis)) {
             Sheet sheet = workbook.getSheetAt(0);
@@ -30,12 +29,18 @@ public class ExcelUtils {
         }
         return dataMap;
     }
+    public static boolean isInExcel(String value) {
+        return dataMap.containsValue(value);
+    }
 
     private static String normalizeNumber(String number) {
         return number.replaceAll("[^0-9]", "");
     }
 
     private static String formatCell(Cell cell) {
+        if (cell == null) {
+            return "";
+        }
         DataFormatter dataFormatter = new DataFormatter();
         return switch (cell.getCellType()) {
             case STRING -> cell.getStringCellValue();
@@ -47,9 +52,9 @@ public class ExcelUtils {
         };
     }
 
-    public static String getPathToResourceFile() {
+    public static String getPathToResourceFile(String fileName) {
         String projectDir = System.getProperty("user.dir");
-        Path filePath = Paths.get(projectDir, "src", "test", "resources", "data", SHEET_DATA_FILE);
+        Path filePath = Paths.get(projectDir, "src", "test", "resources", "data", fileName);
         return filePath.toAbsolutePath().toString();
     }
 }
