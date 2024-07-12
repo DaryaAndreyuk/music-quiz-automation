@@ -1,7 +1,7 @@
 import basecomponents.BaseTest;
-import org.example.pageobjects.LandingPage;
-import org.example.pageobjects.RegisterGamePage;
-import org.example.pageobjects.UpcomingGamesPage;
+import org.example.pages.LandingPage;
+import org.example.pages.RegisterGamePage;
+import org.example.pages.UpcomingGamesPage;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.openqa.selenium.WebElement;

@@ -1,32 +1,35 @@
 package basecomponents;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.example.pageobjects.LandingPage;
-import org.example.pageobjects.RegisterGamePage;
-import org.example.pageobjects.UpcomingGamesPage;
+import org.example.pages.LandingPage;
+import org.example.pages.RegisterGamePage;
+import org.example.pages.UpcomingGamesPage;
 import org.example.utils.ExcelUtils;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-
 import java.util.Map;
-
 import static org.example.utils.Constants.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
+@ExtendWith(AllureScreenshotExtension.class)
 public class BaseTest {
 
     public WebDriver driver;
     public LandingPage landingPage;
+    protected ThreadLocal<WebDriver> driverThreadLocal = new ThreadLocal<>();
 
     @BeforeEach
     public void setUp() {
         driver = initializeChromeDriver();
+        driverThreadLocal.set(driver);
         driver.get(MOZGO_QUIZ_URL);
         landingPage = new LandingPage(driver);
+
     }
 
     public WebDriver initializeChromeDriver() {
@@ -38,6 +41,7 @@ public class BaseTest {
 
     @AfterEach
     public void tearDown() {
+         driver = driverThreadLocal.get();
         if (driver != null) {
             driver.quit();
         }
@@ -59,5 +63,8 @@ public class BaseTest {
         landingPage.loginApplication(email, password);
         assertEquals(expectedErrorMessage, landingPage.getErrorMessage());
     }
-}
 
+    public WebDriver getDriver() {
+        return driver;
+    }
+}

@@ -1,5 +1,5 @@
 import basecomponents.BaseTest;
-import org.example.pageobjects.RegisterGamePage;
+import org.example.pages.RegisterGamePage;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -9,6 +9,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ErrorValidationTest extends BaseTest {
+
 
     @Test
     @Tag("negative")

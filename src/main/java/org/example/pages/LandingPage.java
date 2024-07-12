@@ -1,4 +1,4 @@
-package org.example.pageobjects;
+package org.example.pages;
 
 import org.example.utils.AbstractComponent;
 import org.openqa.selenium.WebDriver;

@@ -1,4 +1,4 @@
-package org.example.pageobjects;
+package org.example.pages;
 
 import org.example.utils.AbstractComponent;
 import org.openqa.selenium.By;
@@ -19,24 +19,21 @@ public class UpcomingGamesPage extends AbstractComponent {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(css = "a[href='/account/games']")
-    WebElement accountGamesElement;
+    @FindBy(xpath = "//button[text()=' Сыграть ']")
+    WebElement playButton;
 
-    @FindBy(css = "a[href='/#upcoming-games']")
-    WebElement upcomingGamesElement;
+    @FindBy(css = "img[src='/img/logo/mq_logo_black.svg']")
+    WebElement mainMozgoQuizElement;
 
     @FindBy(css = "div[class='p-5 relative item']")
     List<WebElement> upcomingGames;
 
-    By accountGamesLocator = By.cssSelector("a[href='/account/games']");
     By buttonForRegisterLocator = By.cssSelector(".reg-event-btn");
 
     public void getUpcomingGamesList() {
-        waitForElementToAppear(accountGamesLocator);
-        accountGamesElement.click();
-        waitForElementToBeClickable(preloaderLocator);
-        waitForWebElementToBeClickable(upcomingGamesElement);
-        upcomingGamesElement.click();
+        waitForWebElementToBeClickable(mainMozgoQuizElement);
+        mainMozgoQuizElement.click();
+        playButton.click();
     }
 
     public WebElement getGameByType(String gameType) {
@@ -48,6 +45,7 @@ public class UpcomingGamesPage extends AbstractComponent {
         closeCookieAlert();
         WebElement button = gameElement.findElement(buttonForRegisterLocator);
         waitForElementToAppear(buttonForRegisterLocator);
+        waitForWebElementToBeClickable(button);
         button.click();
         return new RegisterGamePage(driver);
     }
