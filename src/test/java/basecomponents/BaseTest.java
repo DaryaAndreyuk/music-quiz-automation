@@ -37,6 +37,11 @@ public class BaseTest {
             throw new RuntimeException("SELENIUM_REMOTE_URL environment variable is not set.");
         }
         ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless");  // Добавляем headless режим
+        options.addArguments("--disable-gpu"); // Отключаем GPU, так как он не нужен в headless режиме
+        options.addArguments("--no-sandbox"); // Отключаем sandbox для предотвращения проблем с правами доступа
+        options.addArguments("--disable-dev-shm-usage"); // Используем /tmp вместо /dev/shm
+        options.setCapability("goog:loggingPrefs", Map.of("browser", "ALL"));
         try {
             driver = new RemoteWebDriver(new URL(remoteUrl), options);
         } catch (MalformedURLException e) {
@@ -49,6 +54,7 @@ public class BaseTest {
     @AfterEach
     public void tearDown() {
         if (driver != null) {
+            driver.manage().logs().get("browser").forEach(logEntry -> System.out.println(logEntry.getMessage()));
             driver.quit();
         }
     }
