@@ -41,7 +41,7 @@ public class AbstractComponent {
     }
 
     public void waitForWebElementToAppear(WebElement webElement) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOf(webElement));
     }
 

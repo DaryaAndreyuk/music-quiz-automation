@@ -1,5 +1,6 @@
 package org.example.pages;
 
+import io.qameta.allure.Step;
 import org.example.utils.AbstractComponent;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -25,26 +26,29 @@ public class UpcomingGamesPage extends AbstractComponent {
     @FindBy(css = "img[src='/img/logo/mq_logo_black.svg']")
     WebElement mainMozgoQuizElement;
 
-    @FindBy(css = "div[class='p-5 relative item']")
+    @FindBy(xpath = "//div[contains(@class, 'p-5')]")
     List<WebElement> upcomingGames;
 
-    By buttonForRegisterLocator = By.cssSelector(".reg-event-btn");
+    By buttonForRegisterLocator = By.xpath("//button[contains(text(), 'Зарегистрироваться')]");
 
+    @Step("Clicking on button \"Сыграть\"")
     public void getUpcomingGamesList() {
         waitForWebElementToBeClickable(mainMozgoQuizElement);
         mainMozgoQuizElement.click();
         playButton.click();
     }
 
+    @Step("Choosing game with type {0}")
     public WebElement getGameByType(String gameType) {
         return upcomingGames.stream().filter(game ->
                 game.findElement(By.cssSelector("p")).getText().contains(gameType)).findFirst().orElse(null);
     }
 
+    @Step("Clicking on button \"Зарегистрироваться\"")
     public RegisterGamePage clickOnRegisterButton(WebElement gameElement) {
         closeCookieAlert();
-        WebElement button = gameElement.findElement(buttonForRegisterLocator);
         waitForElementToAppear(buttonForRegisterLocator);
+        WebElement button = gameElement.findElement(buttonForRegisterLocator);
         waitForWebElementToBeClickable(button);
         button.click();
         return new RegisterGamePage(driver);
