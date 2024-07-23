@@ -174,7 +174,7 @@
                         <artifactId>maven-surefire-plugin</artifactId>
                         <version>3.3.0</version>
                         <configuration>
-                            <groups>smoke</groups>
+                            <groups>positive</groups>
                             <systemPropertyVariables>
                                 <allure.results.directory>allure-results</allure.results.directory>
                                 <allure.report.directory>allure-report</allure.report.directory>
@@ -196,7 +196,7 @@
                         <artifactId>maven-surefire-plugin</artifactId>
                         <version>3.3.0</version>
                         <configuration>
-                            <groups>smoke</groups>
+                            <groups>negative</groups>
                             <systemPropertyVariables>
                                 <allure.results.directory>allure-results</allure.results.directory>
                                 <allure.report.directory>allure-report</allure.report.directory>
