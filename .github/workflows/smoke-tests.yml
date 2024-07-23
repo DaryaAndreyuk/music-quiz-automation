@@ -8,8 +8,13 @@ on:
 
 jobs:
   build:
-
     runs-on: windows-latest
+
+    services:
+      selenium:
+        image: selenium/standalone-chrome:latest
+        ports:
+          - 4444:4444
 
     steps:
     - name: Checkout repository
@@ -33,4 +38,6 @@ jobs:
         [System.IO.File]::WriteAllBytes("src/test/resources/data/Sheet.xlsx", [System.Convert]::FromBase64String($base64String))
 
     - name: Run smoke tests
+      env:
+        SELENIUM_REMOTE_URL: http://localhost:4444/wd/hub
       run: mvn test -Psmoke-tests
