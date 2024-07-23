@@ -35,7 +35,6 @@ public class BaseTest {
         driverThreadLocal.set(driver);
         driver.get(MOZGO_QUIZ_URL);
         landingPage = new LandingPage(driver);
-
     }
 
     public WebDriver initializeChromeDriver() {
