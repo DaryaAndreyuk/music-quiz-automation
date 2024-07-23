@@ -2,7 +2,7 @@ package org.example.utils;
 
 public final class Constants {
     public static final String MOZGO_QUIZ_GAME_TYPE = "MozgoQuiz";
-    public static final String MOZGO_QUIZ_URL = "https://wro.mzgb.net/";
+    public static final String MOZGO_QUIZ_URL = "https://pzn.mzgb.net/";
     public static final String SHEET_DATA_FILE = "Sheet.xlsx";
     public static final String NO_SHEET_DATA_FILE = "NoSheet.xlsx";
     public static final String EMPTY_SHEET_DATA_FILE = "EmptySheet.xlsx";
