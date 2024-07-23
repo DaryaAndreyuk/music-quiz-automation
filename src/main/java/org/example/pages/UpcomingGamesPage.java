@@ -35,6 +35,7 @@ public class UpcomingGamesPage extends AbstractComponent {
     public void getUpcomingGamesList() {
         waitForWebElementToBeClickable(mainMozgoQuizElement);
         mainMozgoQuizElement.click();
+        closeCookieAlert();
         playButton.click();
     }
 
