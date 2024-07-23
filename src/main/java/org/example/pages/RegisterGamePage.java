@@ -54,7 +54,7 @@ public class RegisterGamePage extends AbstractComponent {
     @FindBy(id = "one")
     WebElement numberOfPlayers;
 
-    @Step("Filling personal data: name {0}, phone {1}, email {2}")
+    @Step("Filling personal data")
     public void fillPersonalData(String name, String phone, String email) {
         clearInputs();
         fillInputField(fioInput, name);
@@ -82,7 +82,7 @@ public class RegisterGamePage extends AbstractComponent {
         emailInput.clear();
     }
 
-    @Step("Filling team data: team name {0}, number of players {1}")
+    @Step("Filling team data")
     public void fillTeamData(String teamName, int numberOfPlayers) {
         Select teamDropdown = new Select(teamsDropdown);
         if (!teamName.isEmpty()) {
