@@ -47,7 +47,6 @@ public class UpcomingGamesPage extends AbstractComponent {
 
     @Step("Clicking on button \"Зарегистрироваться\"")
     public RegisterGamePage clickOnRegisterButton(WebElement gameElement) {
-        closeCookieAlert();
         waitForElementToAppear(buttonForRegisterLocator);
         WebElement button = gameElement.findElement(buttonForRegisterLocator);
         waitForWebElementToBeClickable(button);
