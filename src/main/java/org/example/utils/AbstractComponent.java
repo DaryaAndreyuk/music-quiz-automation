@@ -24,7 +24,7 @@ public class AbstractComponent {
     }
 
     public void closeCookieAlert() {
-        if (closeCookie != null && closeCookie.isDisplayed()) {
+        if (closeCookie.isEnabled() && closeCookie.isDisplayed()) {
             waitForWebElementToBeClickable(closeCookie);
             closeCookie.click();
 
