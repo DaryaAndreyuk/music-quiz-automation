@@ -8,8 +8,6 @@
     <artifactId>MusicQuizAutomation</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <!-->allure serve target/allure-results<!-->
-
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
@@ -55,21 +53,17 @@
             <version>5.11.0-M2</version>
             <scope>test</scope>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-junit5 -->
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-junit5</artifactId>
             <version>2.28.0</version>
             <scope>test</scope>
         </dependency>
-
-        <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-java-commons -->
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-java-commons</artifactId>
             <version>2.28.0</version>
         </dependency>
-
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
@@ -136,8 +130,6 @@
                     </execution>
                 </executions>
             </plugin>
-
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -149,8 +141,6 @@
             </plugin>
         </plugins>
     </build>
-
-
 
     <profiles>
         <profile>
@@ -172,8 +162,50 @@
                             </argLine>
                         </configuration>
                     </plugin>
-
-
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>positive-tests</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>3.3.0</version>
+                        <configuration>
+                            <groups>smoke</groups>
+                            <systemPropertyVariables>
+                                <allure.results.directory>allure-results</allure.results.directory>
+                                <allure.report.directory>allure-report</allure.report.directory>
+                            </systemPropertyVariables>
+                            <argLine>
+                                -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+                            </argLine>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>negative-tests</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>3.3.0</version>
+                        <configuration>
+                            <groups>smoke</groups>
+                            <systemPropertyVariables>
+                                <allure.results.directory>allure-results</allure.results.directory>
+                                <allure.report.directory>allure-report</allure.report.directory>
+                            </systemPropertyVariables>
+                            <argLine>
+                                -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+                            </argLine>
+                        </configuration>
+                    </plugin>
                 </plugins>
             </build>
         </profile>
