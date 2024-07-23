@@ -1,5 +1,6 @@
-package org.example.pageobjects;
+package org.example.pages;
 
+import io.qameta.allure.Step;
 import org.example.utils.AbstractComponent;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -28,6 +29,7 @@ public class LandingPage extends AbstractComponent {
     @FindBy(xpath = "//button[text()='Войти']")
     WebElement submitButton;
 
+    @Step("Logging in with user email and password")
     public UpcomingGamesPage loginApplication(String userEmail, String userPassword) {
         authClickElement.click();
         emailElement.sendKeys(userEmail);

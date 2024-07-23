@@ -1,11 +1,15 @@
-package org.example.pageobjects;
+package org.example.pages;
 
+import io.qameta.allure.Step;
 import org.example.utils.AbstractComponent;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.Arrays;
 import java.util.List;
 
@@ -50,6 +54,7 @@ public class RegisterGamePage extends AbstractComponent {
     @FindBy(id = "one")
     WebElement numberOfPlayers;
 
+    @Step("Filling personal data")
     public void fillPersonalData(String name, String phone, String email) {
         clearInputs();
         fillInputField(fioInput, name);
@@ -57,6 +62,7 @@ public class RegisterGamePage extends AbstractComponent {
         fillInputField(emailInput, email);
     }
 
+    @Step("clicking to button \"Далее\"")
     public void clickFurtherButton() {
         furtherButton.click();
     }
@@ -76,6 +82,7 @@ public class RegisterGamePage extends AbstractComponent {
         emailInput.clear();
     }
 
+    @Step("Filling team data")
     public void fillTeamData(String teamName, int numberOfPlayers) {
         Select teamDropdown = new Select(teamsDropdown);
         if (!teamName.isEmpty()) {
@@ -108,6 +115,7 @@ public class RegisterGamePage extends AbstractComponent {
         }
     }
 
+    @Step("Clicking on button \"Зарегистрировать\"" )
     public void registerTeam() {
         finalRegButton.click();
     }

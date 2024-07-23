@@ -19,16 +19,15 @@ public class AbstractComponent {
     @FindBy(css = "div[class*='Vue-Toastification__toast-body']")
     public WebElement errorMessage;
 
-    public By preloaderLocator = By.cssSelector("img[src='/img/preloader.gif']");
-
     public AbstractComponent(WebDriver driver) {
         this.driver = driver;
     }
 
     public void closeCookieAlert() {
-        if (closeCookie.isDisplayed()) {
+        if (closeCookie.isEnabled() && closeCookie.isDisplayed()) {
             waitForWebElementToBeClickable(closeCookie);
             closeCookie.click();
+
         }
     }
 
@@ -43,13 +42,8 @@ public class AbstractComponent {
     }
 
     public void waitForWebElementToAppear(WebElement webElement) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        wait.until(ExpectedConditions.visibilityOf(webElement));
-    }
-
-    public void waitForElementToBeClickable(By locator) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.elementToBeClickable(locator));
+        wait.until(ExpectedConditions.visibilityOf(webElement));
     }
 
     public void waitForWebElementToBeClickable(WebElement webElement) {

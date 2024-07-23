@@ -1,5 +1,6 @@
 import basecomponents.BaseTest;
-import org.example.pageobjects.RegisterGamePage;
+import io.qameta.allure.Description;
+import org.example.pages.RegisterGamePage;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -10,9 +11,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ErrorValidationTest extends BaseTest {
 
+
     @Test
     @Tag("negative")
     @DisplayName("Verify error message for invalid login credentials")
+    @Description("This test attempts to log into the website using a login and a password")
     public void loginErrorValidation() {
         performLoginAndCheckError("wrong.email@gmail.com", "Stronbbbssword1!", "Учётные данные не найдены в базе.");
     }
