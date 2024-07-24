@@ -1,4 +1,7 @@
 import basecomponents.BaseTest;
+import io.qameta.allure.Description;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.example.pages.LandingPage;
 import org.example.pages.RegisterGamePage;
 import org.example.pages.UpcomingGamesPage;
@@ -6,7 +9,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.openqa.selenium.WebElement;
 import org.junit.jupiter.api.Test;
-
 import java.util.Map;
 
 import static org.example.utils.Constants.*;
@@ -18,6 +20,8 @@ public class RegistrationTeamTest extends BaseTest {
 
     @Test
     @Tag("smoke")
+    @Description("Test Description")
+    @Severity(SeverityLevel.CRITICAL)
     public void registerTeamValidation() {
 
         Map<String, String> dataMap = ExcelUtils.getExcelDataToMap(ExcelUtils.getPathToResourceFile(SHEET_DATA_FILE));
