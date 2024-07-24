@@ -56,13 +56,13 @@
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-junit5</artifactId>
-            <version>2.28.0</version>
+            <version>${allure.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-java-commons</artifactId>
-            <version>2.28.0</version>
+            <version>${allure.version}</version>
         </dependency>
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
@@ -86,11 +86,11 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.3.0</version>
+                <version>2.22.1</version>
                 <configuration>
                     <systemPropertyVariables>
-                        <allure.results.directory>allure-results</allure.results.directory>
-                        <allure.report.directory>allure-report</allure.report.directory>
+                        <allure.results.directory>${project.basedir}/target/allure-results</allure.results.directory>
+                        <allure.report.directory>${project.basedir}/target/allure-report</allure.report.directory>
                     </systemPropertyVariables>
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
@@ -107,29 +107,16 @@
             </plugin>
 
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-clean-plugin</artifactId>
-                <version>3.2.0</version>
-                <executions>
-                    <execution>
-                        <id>clean-allure-results</id>
-                        <phase>initialize</phase>
-                        <goals>
-                            <goal>clean</goal>
-                        </goals>
-                        <configuration>
-                            <filesets>
-                                <fileset>
-                                    <directory>${project.basedir}/allure-results</directory>
-                                    <includes>
-                                        <include>**/*</include>
-                                    </includes>
-                                </fileset>
-                            </filesets>
-                        </configuration>
-                    </execution>
-                </executions>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>2.12.0</version>
+                <configuration>
+                    <resultsDirectory>allure-results</resultsDirectory>
+                    <reportDirectory>${project.basedir}\target\allure-report</reportDirectory>
+                    <reportVersion>2.28.0</reportVersion>
+                </configuration>
             </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -154,8 +141,8 @@
                         <configuration>
                             <groups>smoke</groups>
                             <systemPropertyVariables>
-                                <allure.results.directory>allure-results</allure.results.directory>
-                                <allure.report.directory>allure-report</allure.report.directory>
+                                <allure.results.directory>${project.basedir}/target/allure-results</allure.results.directory>
+                                <allure.report.directory>${project.basedir}/target/allure-report</allure.report.directory>
                             </systemPropertyVariables>
                             <argLine>
                                 -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"

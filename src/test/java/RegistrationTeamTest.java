@@ -18,7 +18,6 @@ public class RegistrationTeamTest extends BaseTest {
 
     @Test
     @Tag("smoke")
-    @DisplayName("Verify team registration process")
     public void registerTeamValidation() {
 
         Map<String, String> dataMap = ExcelUtils.getExcelDataToMap(ExcelUtils.getPathToResourceFile(SHEET_DATA_FILE));
