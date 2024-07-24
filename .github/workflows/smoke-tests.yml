@@ -41,13 +41,12 @@ jobs:
       - name: Run smoke tests
         env:
           SELENIUM_REMOTE_URL: http://localhost:4444/wd/hub
-        run: mvn test -Psmoke-tests
+        run: mvn clean test -Psmoke-tests
 
       - name: Install Allure CLI
         run: |
-          sudo apt-add-repository ppa:qameta/allure
-          sudo apt-get update
-          sudo apt-get install allure
+          wget -qO- https://github.com/allure-framework/allure2/releases/download/2.13.8/allure-2.13.8.tgz | tar -xz -C /opt/
+          sudo ln -s /opt/allure-2.13.8/bin/allure /usr/bin/allure
 
       - name: Generate Allure report
         run: |
