@@ -43,6 +43,12 @@ jobs:
           SELENIUM_REMOTE_URL: http://localhost:4444/wd/hub
         run: mvn test -Psmoke-tests
 
+      - name: Install Allure CLI
+        run: |
+          sudo apt-add-repository ppa:qameta/allure
+          sudo apt-get update
+          sudo apt-get install allure
+
       - name: Generate Allure report
         run: |
           allure generate allure-results -o allure-report --clean
