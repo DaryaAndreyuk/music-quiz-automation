@@ -43,20 +43,13 @@ jobs:
           SELENIUM_REMOTE_URL: http://localhost:4444/wd/hub
         run: mvn clean test -Psmoke-tests
 
-      - name: Install Allure CLI
-        run: |
-          wget -qO- https://github.com/allure-framework/allure2/releases/download/2.13.8/allure-2.13.8.tgz | tar -xz -C /opt/
-          sudo ln -s /opt/allure-2.13.8/bin/allure /usr/bin/allure
-
       - name: Generate Allure report
-        run: |
-          allure generate allure-results -o allure-report --clean
-        continue-on-error: true
+        run: mvn allure:report
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./allure-report
+          publish_dir: ./target/site/allure-maven-plugin
           publish_branch: gh-pages
           keep_files: false

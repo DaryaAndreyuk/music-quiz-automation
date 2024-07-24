@@ -115,6 +115,15 @@
                     <reportDirectory>${project.basedir}\target\allure-report</reportDirectory>
                     <reportVersion>2.28.0</reportVersion>
                 </configuration>
+                <executions>
+                    <execution>
+                        <id>allure-report</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
 
             <plugin>
