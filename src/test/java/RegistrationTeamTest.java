@@ -1,7 +1,9 @@
 import basecomponents.BaseTest;
+import io.qameta.allure.Allure;
 import io.qameta.allure.Description;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.model.Parameter;
 import org.example.pages.LandingPage;
 import org.example.pages.RegisterGamePage;
 import org.example.pages.UpcomingGamesPage;
@@ -20,7 +22,8 @@ public class RegistrationTeamTest extends BaseTest {
 
     @Test
     @Tag("smoke")
-    @Description("Test Description")
+    @DisplayName("Register Team Validation")
+    @Description("Verify team registration process")
     @Severity(SeverityLevel.CRITICAL)
     public void registerTeamValidation() {
 
@@ -28,12 +31,14 @@ public class RegistrationTeamTest extends BaseTest {
         LandingPage landingPage = new LandingPage(driver);
         landingPage.closeCookieAlert();
         UpcomingGamesPage upcomingGamesPage = landingPage.loginApplication(dataMap.get(EMAIL), dataMap.get(PASSWORD));
+        landingPage.logMaskedSensitiveInfo(dataMap.get(EMAIL), dataMap.get(PASSWORD));
         upcomingGamesPage.getUpcomingGamesList();
         WebElement gameElement = upcomingGamesPage.getGameByType(MOZGO_QUIZ_GAME_TYPE);
 
         assertNotNull(gameElement);
         RegisterGamePage registerGamePage = upcomingGamesPage.clickOnRegisterButton(gameElement);
         registerGamePage.fillPersonalData(dataMap.get(NAME), dataMap.get(PHONE), dataMap.get(EMAIL));
+        registerGamePage.logMaskedSensitiveInfo(dataMap.get(NAME), dataMap.get(PHONE), dataMap.get(EMAIL));
         registerGamePage.clickFurtherButton();
 
         registerGamePage.fillTeamData(dataMap.get(TEAM), Integer.parseInt(dataMap.get(NUMBER_OF_TEAMMATES)));

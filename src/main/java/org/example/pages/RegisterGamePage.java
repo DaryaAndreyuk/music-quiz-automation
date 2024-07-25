@@ -1,5 +1,6 @@
 package org.example.pages;
 
+import io.qameta.allure.Allure;
 import io.qameta.allure.Step;
 import org.example.utils.AbstractComponent;
 import org.openqa.selenium.*;
@@ -54,15 +55,27 @@ public class RegisterGamePage extends AbstractComponent {
     @FindBy(id = "one")
     WebElement numberOfPlayers;
 
-    @Step("Filling personal data")
     public void fillPersonalData(String name, String phone, String email) {
         clearInputs();
+        performFillingInputs(name, phone, email);
+    }
+
+    private void performFillingInputs(String name, String phone, String email) {
         fillInputField(fioInput, name);
         fillInputField(phoneInput, phone);
         fillInputField(emailInput, email);
     }
 
-    @Step("clicking to button \"Далее\"")
+    public void logMaskedSensitiveInfo(String userName, String userPhone, String userEmail) {
+        String maskedPhone = maskPhone(userPhone);
+        String maskedEmail = maskEmail(userEmail);
+        Allure.step("Filling personal data:");
+        Allure.step("Name: " + userName);
+        Allure.step("Phone: " + maskedPhone);
+        Allure.step("Email: " + maskedEmail);
+    }
+
+    @Step("Clicking to button \"Далее\"")
     public void clickFurtherButton() {
         furtherButton.click();
     }

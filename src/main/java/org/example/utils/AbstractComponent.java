@@ -23,6 +23,23 @@ public class AbstractComponent {
         this.driver = driver;
     }
 
+    public String maskPassword(String userPassword) {
+        return userPassword.replaceAll(".", "*");
+    }
+
+    public String maskEmail(String userEmail) {
+        int atIndex = userEmail.indexOf('@');
+        if (atIndex > 3) {
+            return userEmail.replaceAll("(?<=.{3}).(?=.*@)", "*");
+        } else {
+            return userEmail.substring(0, 1) + userEmail.substring(1, atIndex).replaceAll(".", "*") + userEmail.substring(atIndex);
+        }
+    }
+
+    public String maskPhone(String userPhone) {
+        return userPhone.replaceAll("(?<=\\+?\\d{3})\\d(?=\\d{2})", "*");
+    }
+
     public void closeCookieAlert() {
         if (closeCookie.isEnabled() && closeCookie.isDisplayed()) {
             waitForWebElementToBeClickable(closeCookie);
