@@ -64,5 +64,9 @@ jobs:
           git clone --depth=1 --branch=gh-pages https://github.com/${{ github.repository }} gh-pages
           cd gh-pages
           find . -type f -mtime +7 -exec git rm -f {} \;
-          git commit -m "Cleanup old files"
-          git push
+          if [ -n "$(git status --porcelain)" ]; then
+            git commit -m "Cleanup old files"
+            git push
+          else
+            echo "No changes to commit"
+          fi
