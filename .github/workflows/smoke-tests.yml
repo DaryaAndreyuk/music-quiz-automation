@@ -2,9 +2,9 @@ name: Java CI with Maven
 
 on:
   push:
-    branches: [ "fb_DaryaAndreyuk_14_AllureReportGithubPages" ]
+    branches: [ "master" ]
   pull_request:
-    branches: [ "fb_DaryaAndreyuk_14_AllureReportGithubPages" ]
+    branches: [ "master" ]
 
 jobs:
   build:
@@ -55,4 +55,14 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./target/allure-report
           publish_branch: gh-pages
-          keep_files: false
+          keep_files: true
+
+      - name: Cleanup old files from gh-pages
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git clone --depth=1 --branch=gh-pages https://github.com/${{ github.repository }} gh-pages
+          cd gh-pages
+          find . -type f -mtime +7 -exec git rm -f {} \;
+          git commit -m "Cleanup old files"
+          git push
