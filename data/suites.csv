@@ -1,2 +1,2 @@
 "Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"passed","Thu Jul 25 16:03:30 UTC 2024","Thu Jul 25 16:03:40 UTC 2024","9548","","RegistrationTeamTest","","RegistrationTeamTest","registerTeamValidation","Register Team Validation","Verify team registration process"
+"passed","Mon Jul 29 10:46:40 UTC 2024","Mon Jul 29 10:46:48 UTC 2024","7851","","RegistrationTeamTest","","RegistrationTeamTest","registerTeamValidation","Register Team Validation","Verify team registration process"
