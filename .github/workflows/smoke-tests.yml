@@ -18,27 +18,55 @@ jobs:
           - 4444:4444
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-    - name: Set up JDK 21
-      uses: actions/setup-java@v3
-      with:
-        java-version: '21'
-        distribution: 'temurin'
-        cache: maven
+      - name: Set up JDK 21
+        uses: actions/setup-java@v3
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+          cache: maven
 
-    - name: Decode Excel file
-      shell: pwsh
-      run: echo ${{ secrets.EXCEL_BASE64 }} | Out-File -FilePath src/test/resources/data/Sheet.base64
+      - name: Decode Excel file
+        shell: pwsh
+        run: echo ${{ secrets.EXCEL_BASE64 }} | Out-File -FilePath src/test/resources/data/Sheet.base64
 
-    - name: Convert base64 to Excel
-      shell: pwsh
-      run: |
-        $base64String = Get-Content src/test/resources/data/Sheet.base64
-        [System.IO.File]::WriteAllBytes("src/test/resources/data/Sheet.xlsx", [System.Convert]::FromBase64String($base64String))
+      - name: Convert base64 to Excel
+        shell: pwsh
+        run: |
+          $base64String = Get-Content src/test/resources/data/Sheet.base64
+          [System.IO.File]::WriteAllBytes("src/test/resources/data/Sheet.xlsx", [System.Convert]::FromBase64String($base64String))
 
-    - name: Run smoke tests
-      env:
-        SELENIUM_REMOTE_URL: http://localhost:4444/wd/hub
-      run: mvn test -Psmoke-tests
+      - name: Run smoke tests
+        env:
+          SELENIUM_REMOTE_URL: http://localhost:4444/wd/hub
+        run: mvn clean test -Psmoke-tests
+
+      - name: Generate Allure report
+        run: mvn allure:report
+
+      - name: List report directory contents
+        run: ls -R ./target/allure-report
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./target/allure-report
+          publish_branch: gh-pages
+          keep_files: true
+
+      - name: Cleanup old files from gh-pages
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git clone --depth=1 --branch=gh-pages https://github.com/${{ github.repository }} gh-pages
+          cd gh-pages
+          find . -type f -mtime +7 -exec git rm -f {} \;
+          if [ -n "$(git status --porcelain)" ]; then
+            git commit -m "Cleanup old files"
+            git push
+          else
+            echo "No changes to commit"
+          fi

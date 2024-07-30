@@ -12,8 +12,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
+import io.qameta.allure.Allure;
+import io.qameta.allure.model.Parameter;
 import java.time.Duration;
+
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -46,10 +48,10 @@ public class BaseTest {
             throw new RuntimeException("SELENIUM_REMOTE_URL environment variable is not set.");
         }
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless");  // Добавляем headless режим
-        options.addArguments("--disable-gpu"); // Отключаем GPU, так как он не нужен в headless режиме
-        options.addArguments("--no-sandbox"); // Отключаем sandbox для предотвращения проблем с правами доступа
-        options.addArguments("--disable-dev-shm-usage"); // Используем /tmp вместо /dev/shm
+        options.addArguments("--headless");  // Add headless mode
+        options.addArguments("--disable-gpu"); // Switch off GPU, because we don't need it in headless mode
+        options.addArguments("--no-sandbox"); // Switch off sandbox to prevent access rights issues
+        options.addArguments("--disable-dev-shm-usage"); // Use /tmp instead of /dev/shm
         options.setCapability("goog:loggingPrefs", Map.of("browser", "ALL"));
         try {
             driver = new RemoteWebDriver(new URL(remoteUrl), options);
@@ -69,7 +71,7 @@ public class BaseTest {
         }
     }
 
-    @Step("initialize register page")
+    @Step("Initialize register page")
     public RegisterGamePage initializeRegisterPage() {
         String filePath = ExcelUtils.getPathToResourceFile(SHEET_DATA_FILE);
         Map<String, String> dataMap = ExcelUtils.getExcelDataToMap(filePath);
@@ -83,7 +85,7 @@ public class BaseTest {
         return upcomingGamesPage.clickOnRegisterButton(gameElement);
     }
 
-    @Step("perform Login And Check Error")
+    @Step("Perform Login And Check Error")
     public void performLoginAndCheckError(String email, String password, String expectedErrorMessage) {
         landingPage.closeCookieAlert();
         landingPage.loginApplication(email, password);
