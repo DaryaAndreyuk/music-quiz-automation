@@ -1,9 +1,7 @@
 import basecomponents.BaseTest;
-import io.qameta.allure.Allure;
 import io.qameta.allure.Description;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
-import io.qameta.allure.model.Parameter;
 import org.example.pages.LandingPage;
 import org.example.pages.RegisterGamePage;
 import org.example.pages.UpcomingGamesPage;
@@ -57,6 +55,7 @@ public class RegistrationTeamTest extends BaseTest {
         LandingPage landingPage = new LandingPage(driver);
         landingPage.closeCookieAlert();
         landingPage.loginApplication(dataMap.get(EMAIL), dataMap.get(PASSWORD));
+        landingPage.logMaskedSensitiveInfo(dataMap.get(EMAIL), dataMap.get(PASSWORD));
         assertTrue(dataMap.containsValue(landingPage.getEmail()));
         assertTrue(dataMap.containsValue(landingPage.getPassword()));
     }
@@ -69,6 +68,7 @@ public class RegistrationTeamTest extends BaseTest {
         Map<String, String> dataMap = ExcelUtils.getExcelDataToMap(ExcelUtils.getPathToResourceFile(SHEET_DATA_FILE));
 
         registerGamePage.fillPersonalData(dataMap.get(NAME), dataMap.get(PHONE), dataMap.get(EMAIL));
+        registerGamePage.logMaskedSensitiveInfo(dataMap.get(NAME), dataMap.get(PHONE), dataMap.get(EMAIL));
         assertTrue(dataMap.containsValue(registerGamePage.getFio()));
         assertTrue(dataMap.containsValue(registerGamePage.getPhone()));
         assertTrue(dataMap.containsValue(registerGamePage.getEmail()));
@@ -83,6 +83,7 @@ public class RegistrationTeamTest extends BaseTest {
         RegisterGamePage registerGamePage = initializeRegisterPage();
 
         registerGamePage.fillPersonalData(dataMap.get(NAME), dataMap.get(PHONE), dataMap.get(EMAIL));
+        registerGamePage.logMaskedSensitiveInfo(dataMap.get(NAME), dataMap.get(PHONE), dataMap.get(EMAIL));
         registerGamePage.clickFurtherButton();
         registerGamePage.fillTeamData(dataMap.get(TEAM), Integer.parseInt(String.valueOf(dataMap.get(NUMBER_OF_TEAMMATES))));
         assertTrue(dataMap.containsValue(registerGamePage.getTeamName()));

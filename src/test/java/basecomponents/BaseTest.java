@@ -77,10 +77,10 @@ public class BaseTest {
         Map<String, String> dataMap = ExcelUtils.getExcelDataToMap(filePath);
         landingPage.closeCookieAlert();
         UpcomingGamesPage upcomingGamesPage = landingPage.loginApplication(dataMap.get(EMAIL), dataMap.get(PASSWORD));
+        landingPage.logMaskedSensitiveInfo(dataMap.get(EMAIL), dataMap.get(PASSWORD));
         upcomingGamesPage.getUpcomingGamesList();
         WebElement gameElement = upcomingGamesPage.getGameByType(MOZGO_QUIZ_GAME_TYPE);
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.visibilityOf(gameElement));
+        upcomingGamesPage.waitForWebElementToAppear(gameElement);
         assertNotEquals(null, gameElement);
         return upcomingGamesPage.clickOnRegisterButton(gameElement);
     }
