@@ -5,7 +5,7 @@ on:
   push:
     branches: [ "fb_DaryaAndreyuk_16_AddJobManualTrigger" ]
   pull_request:
-    branches: [ "fb_DaryaAndreyuk_16_AddJobManualTrigger" ]й
+    branches: [ "fb_DaryaAndreyuk_16_AddJobManualTrigger" ]
 
 jobs:
   regression:
