@@ -2,6 +2,10 @@ name: Full Regression Test
 
 on:
   workflow_dispatch:
+  push:
+    branches: [ "fb_DaryaAndreyuk_16_AddJobManualTrigger" ]
+  pull_request:
+    branches: [ "fb_DaryaAndreyuk_16_AddJobManualTrigger" ]й
 
 jobs:
   regression:
