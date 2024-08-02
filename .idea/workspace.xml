@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="555caa66-574e-41a6-8fab-ef369794be42" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/pages/RegisterGamePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/pages/RegisterGamePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/pages/UpcomingGamesPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/pages/UpcomingGamesPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ErrorValidationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ErrorValidationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/RegistrationTeamTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/RegistrationTeamTest.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2i8c5JmivtFrvt263VlJGDetiOb" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "Application.RegistrationTeamTest.executor": "Run",
+    "JUnit.ErrorValidationTest.emailErrorValidation.executor": "Run",
+    "JUnit.ErrorValidationTest.emailFormatErrorValidation.executor": "Run",
+    "JUnit.ErrorValidationTest.emptyEmailErrorValidation.executor": "Run",
+    "JUnit.ErrorValidationTest.emptyNameErrorValidation.executor": "Run",
+    "JUnit.ErrorValidationTest.emptyPhoneErrorValidation.executor": "Run",
+    "JUnit.ErrorValidationTest.emptyTeamNameErrorValidation.executor": "Run",
+    "JUnit.ErrorValidationTest.emptyUserNameErrorValidation.executor": "Run",
+    "JUnit.ErrorValidationTest.executor": "Run",
+    "JUnit.ErrorValidationTest.loginErrorValidation.executor": "Run",
+    "JUnit.ErrorValidationTest.nameErrorValidation.executor": "Debug",
+    "JUnit.ErrorValidationTest.personalDataErrorValidation.executor": "Run",
+    "JUnit.ErrorValidationTest.phoneErrorValidation.executor": "Run",
+    "JUnit.ErrorValidationTest.phoneFormatErrorValidation.executor": "Run",
+    "JUnit.ErrorValidationTest.phoneFormatNoErrorValidation.executor": "Run",
+    "JUnit.ExcelIntegrationTest.executor": "Run",
+    "JUnit.ExcelIntegrationTest.testEmptyFile.executor": "Run",
+    "JUnit.ExcelIntegrationTest.testMissingRequiredField.executor": "Run",
+    "JUnit.ExcelIntegrationTest.testNoFile.executor": "Run",
+    "JUnit.Main.testTitle.executor": "Run",
+    "JUnit.RegistrationTeamTest (1).executor": "Run",
+    "JUnit.RegistrationTeamTest.checkTeamRegistration.executor": "Run",
+    "JUnit.RegistrationTeamTest.executor": "Run",
+    "JUnit.RegistrationTeamTest.inputFieldsInExcelValidation.executor": "Run",
+    "JUnit.RegistrationTeamTest.loginDataInExcelValidation.executor": "Run",
+    "JUnit.RegistrationTeamTest.personalDataInExcelValidation.executor": "Run",
+    "JUnit.RegistrationTeamTest.registerTeamValidation.executor": "Run",
+    "JUnit.RegistrationTeamTest.teamDataInExcelValidation.executor": "Run",
+    "JUnit.TitleTest.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "fb__DaryaAndreyuk__16__AddJobManualTrigger",
+    "kotlin-language-version-configured": "true",
+    "last_directory_selection": "I:/idea-workspace/MusicQuizAutomation/src/test/java",
+    "last_opened_file_path": "I:/idea-workspace/MusicQuizAutomation/src/test/resources/data",
+    "onboarding.tips.debug.path": "I:/idea-workspace/MusicQuizAutomation/src/main/java/org/example/Main.java",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "editor.preferences.smartKeys"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="I:\idea-workspace\MusicQuizAutomation\src\test\resources\data" />
+      <recent name="I:\idea-workspace" />
+    </key>
+    <key name="IntroduceConstantDialog.RECENTS_KEY">
+      <recent name="org.example.utils.Constants" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="" />
+      <recent name="org.example.pageobjects" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.ErrorValidationTest.emptyUserNameErrorValidation">
+    <configuration name="ErrorValidationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MusicQuizAutomation" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ErrorValidationTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ErrorValidationTest.emptyEmailErrorValidation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MusicQuizAutomation" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ErrorValidationTest" />
+      <option name="METHOD_NAME" value="emptyEmailErrorValidation" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ErrorValidationTest.emptyPhoneErrorValidation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MusicQuizAutomation" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ErrorValidationTest" />
+      <option name="METHOD_NAME" value="emptyPhoneErrorValidation" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ErrorValidationTest.emptyUserNameErrorValidation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MusicQuizAutomation" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ErrorValidationTest" />
+      <option name="METHOD_NAME" value="emptyUserNameErrorValidation" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ErrorValidationTest.phoneFormatErrorValidation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MusicQuizAutomation" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ErrorValidationTest" />
+      <option name="METHOD_NAME" value="phoneFormatErrorValidation(java.lang.String)" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.ErrorValidationTest.emptyUserNameErrorValidation" />
+        <item itemvalue="JUnit.ErrorValidationTest.emptyEmailErrorValidation" />
+        <item itemvalue="JUnit.ErrorValidationTest.emptyPhoneErrorValidation" />
+        <item itemvalue="JUnit.ErrorValidationTest" />
+        <item itemvalue="JUnit.ErrorValidationTest.phoneFormatErrorValidation" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="555caa66-574e-41a6-8fab-ef369794be42" name="Changes" comment="" />
+      <created>1718875472572</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1718875472572</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
