@@ -5,10 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="555caa66-574e-41a6-8fab-ef369794be42" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/pages/RegisterGamePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/pages/RegisterGamePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/pages/UpcomingGamesPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/pages/UpcomingGamesPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ErrorValidationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ErrorValidationTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/RegistrationTeamTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/RegistrationTeamTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,50 +35,50 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "Application.RegistrationTeamTest.executor": "Run",
-    "JUnit.ErrorValidationTest.emailErrorValidation.executor": "Run",
-    "JUnit.ErrorValidationTest.emailFormatErrorValidation.executor": "Run",
-    "JUnit.ErrorValidationTest.emptyEmailErrorValidation.executor": "Run",
-    "JUnit.ErrorValidationTest.emptyNameErrorValidation.executor": "Run",
-    "JUnit.ErrorValidationTest.emptyPhoneErrorValidation.executor": "Run",
-    "JUnit.ErrorValidationTest.emptyTeamNameErrorValidation.executor": "Run",
-    "JUnit.ErrorValidationTest.emptyUserNameErrorValidation.executor": "Run",
-    "JUnit.ErrorValidationTest.executor": "Run",
-    "JUnit.ErrorValidationTest.loginErrorValidation.executor": "Run",
-    "JUnit.ErrorValidationTest.nameErrorValidation.executor": "Debug",
-    "JUnit.ErrorValidationTest.personalDataErrorValidation.executor": "Run",
-    "JUnit.ErrorValidationTest.phoneErrorValidation.executor": "Run",
-    "JUnit.ErrorValidationTest.phoneFormatErrorValidation.executor": "Run",
-    "JUnit.ErrorValidationTest.phoneFormatNoErrorValidation.executor": "Run",
-    "JUnit.ExcelIntegrationTest.executor": "Run",
-    "JUnit.ExcelIntegrationTest.testEmptyFile.executor": "Run",
-    "JUnit.ExcelIntegrationTest.testMissingRequiredField.executor": "Run",
-    "JUnit.ExcelIntegrationTest.testNoFile.executor": "Run",
-    "JUnit.Main.testTitle.executor": "Run",
-    "JUnit.RegistrationTeamTest (1).executor": "Run",
-    "JUnit.RegistrationTeamTest.checkTeamRegistration.executor": "Run",
-    "JUnit.RegistrationTeamTest.executor": "Run",
-    "JUnit.RegistrationTeamTest.inputFieldsInExcelValidation.executor": "Run",
-    "JUnit.RegistrationTeamTest.loginDataInExcelValidation.executor": "Run",
-    "JUnit.RegistrationTeamTest.personalDataInExcelValidation.executor": "Run",
-    "JUnit.RegistrationTeamTest.registerTeamValidation.executor": "Run",
-    "JUnit.RegistrationTeamTest.teamDataInExcelValidation.executor": "Run",
-    "JUnit.TitleTest.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "fb__DaryaAndreyuk__16__AddJobManualTrigger",
-    "kotlin-language-version-configured": "true",
-    "last_directory_selection": "I:/idea-workspace/MusicQuizAutomation/src/test/java",
-    "last_opened_file_path": "I:/idea-workspace/MusicQuizAutomation/src/test/resources/data",
-    "onboarding.tips.debug.path": "I:/idea-workspace/MusicQuizAutomation/src/main/java/org/example/Main.java",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "editor.preferences.smartKeys"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.RegistrationTeamTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ErrorValidationTest.emailErrorValidation.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ErrorValidationTest.emailFormatErrorValidation.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ErrorValidationTest.emptyEmailErrorValidation.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ErrorValidationTest.emptyNameErrorValidation.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ErrorValidationTest.emptyPhoneErrorValidation.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ErrorValidationTest.emptyTeamNameErrorValidation.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ErrorValidationTest.emptyUserNameErrorValidation.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ErrorValidationTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ErrorValidationTest.loginErrorValidation.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ErrorValidationTest.nameErrorValidation.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.ErrorValidationTest.personalDataErrorValidation.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ErrorValidationTest.phoneErrorValidation.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ErrorValidationTest.phoneFormatErrorValidation.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ErrorValidationTest.phoneFormatNoErrorValidation.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ExcelIntegrationTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ExcelIntegrationTest.testEmptyFile.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ExcelIntegrationTest.testMissingRequiredField.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ExcelIntegrationTest.testNoFile.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.Main.testTitle.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RegistrationTeamTest (1).executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RegistrationTeamTest.checkTeamRegistration.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RegistrationTeamTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RegistrationTeamTest.inputFieldsInExcelValidation.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RegistrationTeamTest.loginDataInExcelValidation.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RegistrationTeamTest.personalDataInExcelValidation.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RegistrationTeamTest.registerTeamValidation.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RegistrationTeamTest.teamDataInExcelValidation.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TitleTest.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;fb__DaryaAndreyuk__16__AddJobManualTrigger&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_directory_selection&quot;: &quot;I:/idea-workspace/MusicQuizAutomation/src/test/java&quot;,
+    &quot;last_opened_file_path&quot;: &quot;I:/idea-workspace/MusicQuizAutomation/src/test/resources/data&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;I:/idea-workspace/MusicQuizAutomation/src/main/java/org/example/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.smartKeys&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="I:\idea-workspace\MusicQuizAutomation\src\test\resources\data" />
@@ -93,7 +92,7 @@
       <recent name="org.example.pageobjects" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ErrorValidationTest.emptyUserNameErrorValidation">
+  <component name="RunManager" selected="JUnit.ExcelIntegrationTest.testMissingRequiredField">
     <configuration name="ErrorValidationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MusicQuizAutomation" />
       <option name="PACKAGE_NAME" value="" />
@@ -133,11 +132,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ErrorValidationTest.phoneFormatErrorValidation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ExcelIntegrationTest.testMissingRequiredField" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MusicQuizAutomation" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ErrorValidationTest" />
-      <option name="METHOD_NAME" value="phoneFormatErrorValidation(java.lang.String)" />
+      <option name="MAIN_CLASS_NAME" value="ExcelIntegrationTest" />
+      <option name="METHOD_NAME" value="testMissingRequiredField" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -145,11 +144,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ExcelIntegrationTest.testMissingRequiredField" />
         <item itemvalue="JUnit.ErrorValidationTest.emptyUserNameErrorValidation" />
         <item itemvalue="JUnit.ErrorValidationTest.emptyEmailErrorValidation" />
         <item itemvalue="JUnit.ErrorValidationTest.emptyPhoneErrorValidation" />
         <item itemvalue="JUnit.ErrorValidationTest" />
-        <item itemvalue="JUnit.ErrorValidationTest.phoneFormatErrorValidation" />
       </list>
     </recent_temporary>
   </component>

@@ -38,21 +38,15 @@ public class UpcomingGamesPage extends AbstractComponent {
 
     @Step("Clicking on button \"Сыграть\"")
     public void getUpcomingGamesList() {
-        //waitForElementToAppear(buttonForRegisterLocator);
-        // WebElement mainMozgoQuizElementbutton = gameElement.findElement(buttonForRegisterLocator);
-        waitForWebElementToBeClickable(mainMozgoQuizElement);
-        Actions actions = new Actions(driver);
-        actions.moveToElement(mainMozgoQuizElement).click().perform();
-
-
-        //waitForWebElementToBeClickable(mainMozgoQuizElement);
-        //mainMozgoQuizElement.click();
+        clickElement(mainMozgoQuizElement);
         closeCookieAlert();
-        waitForWebElementToBeClickable(playButton);
-        Actions actions1 = new Actions(driver);
-        actions1.moveToElement(playButton).click().perform();
+        clickElement(playButton);
+    }
 
-        //playButton.click();
+    private void clickElement(WebElement element) {
+        waitForWebElementToBeClickable(element);
+        Actions actions = new Actions(driver);
+        actions.moveToElement(element).click().perform();
     }
 
     @Step("Choosing game with type {0}")
