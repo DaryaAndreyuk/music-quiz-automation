@@ -6,7 +6,8 @@ import org.example.pages.RegisterGamePage;
 import org.example.pages.UpcomingGamesPage;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.junit.jupiter.api.Test;
 
 import java.util.Map;
