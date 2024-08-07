@@ -1,6 +1,5 @@
 package basecomponents;
 import org.example.pages.LandingPage;
-import org.example.pages.UpcomingGamesPage;
 import org.example.utils.ExcelUtils;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -19,7 +18,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ExtendWith(AllureScreenshotExtension.class)
 public class BaseTest {
-
 
     public WebDriver driver;
     public WebDriverWait wait;
@@ -67,13 +65,6 @@ public class BaseTest {
     public static Map<String, String> getDataMap() {
         return ExcelUtils.getExcelDataToMap(ExcelUtils.getPathToResourceFile(SHEET_DATA_FILE));
     }
-
-   /* public void performLogin(Map<String, String> dataMap) {
-        landingPage.closeCookieAlert();
-       UpcomingGamesPage upcomingGamesPage = landingPage.loginApplication(dataMap.get(EMAIL), dataMap.get(PASSWORD));
-        landingPage.logMaskedSensitiveInfo(dataMap.get(EMAIL), dataMap.get(PASSWORD));
-        upcomingGamesPage.getUpcomingGamesList();
-    }*/
 
     public void performLoginAndCheckError(String email, String password, String expectedErrorMessage) {
         landingPage.closeCookieAlert();
