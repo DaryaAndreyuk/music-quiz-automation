@@ -10,11 +10,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import io.qameta.allure.Allure;
-import io.qameta.allure.model.Parameter;
-import java.time.Duration;
 
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -85,10 +80,12 @@ public class BaseTest {
         return upcomingGamesPage.clickOnRegisterButton(gameElement);
     }
 
-    @Step("Perform Login And Check Error")
     public void performLoginAndCheckError(String email, String password, String expectedErrorMessage) {
         landingPage.closeCookieAlert();
         landingPage.loginApplication(email, password);
+        if (!email.isEmpty() || !password.isEmpty()) {
+            landingPage.logMaskedSensitiveInfo(email, password);
+        }
         assertEquals(expectedErrorMessage, landingPage.getErrorMessage());
     }
 

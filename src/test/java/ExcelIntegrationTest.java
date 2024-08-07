@@ -12,7 +12,6 @@ import java.util.Map;
 import static org.example.utils.Constants.*;
 import static org.junit.jupiter.api.Assertions.*;
 
-
 public class ExcelIntegrationTest extends BaseTest {
 
     @Test
