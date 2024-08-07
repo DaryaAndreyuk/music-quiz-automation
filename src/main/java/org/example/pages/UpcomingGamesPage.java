@@ -57,17 +57,11 @@ public class UpcomingGamesPage extends AbstractComponent {
 
     @Step("Clicking on button \"Зарегистрироваться\"")
     public RegisterGamePage clickOnRegisterButton(WebElement gameElement) {
-
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(buttonForRegisterLocator));
-
+        waitForElementToAppear(buttonForRegisterLocator);
         WebElement button = gameElement.findElement(buttonForRegisterLocator);
-
-        wait.until(ExpectedConditions.elementToBeClickable(button));
-
+        waitForWebElementToBeClickable(button);
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", button);
         ((JavascriptExecutor) driver).executeScript("arguments[0].click();", button);
-
         return new RegisterGamePage(driver);
     }
 }
