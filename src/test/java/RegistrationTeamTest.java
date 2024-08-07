@@ -2,7 +2,6 @@ import basecomponents.BaseTest;
 import io.qameta.allure.Description;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
-import org.example.pages.LandingPage;
 import org.example.pages.RegisterGamePage;
 import org.example.pages.UpcomingGamesPage;
 import org.junit.jupiter.api.DisplayName;
@@ -10,47 +9,42 @@ import org.junit.jupiter.api.Tag;
 import org.openqa.selenium.*;
 import org.junit.jupiter.api.Test;
 
-import java.time.Duration;
 import java.util.Map;
 
 import static org.example.utils.Constants.*;
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.example.utils.ExcelUtils;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
 public class RegistrationTeamTest extends BaseTest {
 
-    private Map<String, String> getDataMap() {
-        return ExcelUtils.getExcelDataToMap(ExcelUtils.getPathToResourceFile(SHEET_DATA_FILE));
-    }
+    private UpcomingGamesPage upcomingGamesPage;
+    private RegisterGamePage registerGamePage;
 
-    private UpcomingGamesPage loginAndNavigateToUpcomingGames(Map<String, String> dataMap) {
-        LandingPage landingPage = new LandingPage(driver);
+    private void loginAndNavigateToUpcomingGames(Map<String, String> dataMap) {
         landingPage.closeCookieAlert();
-        UpcomingGamesPage upcomingGamesPage = landingPage.loginApplication(dataMap.get(EMAIL), dataMap.get(PASSWORD));
+        upcomingGamesPage = landingPage.loginApplication(dataMap.get(EMAIL), dataMap.get(PASSWORD));
         landingPage.logMaskedSensitiveInfo(dataMap.get(EMAIL), dataMap.get(PASSWORD));
         upcomingGamesPage.getUpcomingGamesList();
-        return upcomingGamesPage;
     }
 
-    private RegisterGamePage navigateToRegisterGamePage(UpcomingGamesPage upcomingGamesPage) {
+    private void navigateToRegisterGamePage() {
         WebElement gameElement = upcomingGamesPage.getGameByType(MOZGO_QUIZ_GAME_TYPE);
         assertNotNull(gameElement);
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-        RegisterGamePage registerGamePage = upcomingGamesPage.clickOnRegisterButton(gameElement);
-        WebElement modalElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("modal")));
-        wait.until(ExpectedConditions.elementToBeClickable(modalElement));
-        return registerGamePage;
+        registerGamePage = upcomingGamesPage.clickOnRegisterButton(gameElement);
+        WebElement modalElement = registerGamePage.waitForElementToAppear(By.className("modal"));
+        registerGamePage.waitForWebElementToBeClickable(modalElement);
     }
 
-    private void fillPersonalDataAndProceed(RegisterGamePage registerGamePage, Map<String, String> dataMap) {
+    private void fillPersonalDataAndProceed(Map<String, String> dataMap) {
         registerGamePage.fillPersonalData(dataMap.get(NAME), dataMap.get(PHONE), dataMap.get(EMAIL));
         registerGamePage.logMaskedSensitiveInfo(dataMap.get(NAME), dataMap.get(PHONE), dataMap.get(EMAIL));
         registerGamePage.clickFurtherButton();
     }
 
+    private void fillTeamDataAndProceed(Map<String, String> dataMap) {
+        registerGamePage.fillTeamData(dataMap.get(TEAM), Integer.parseInt(dataMap.get(NUMBER_OF_TEAMMATES)));
+        registerGamePage.clickFurtherButton();
+        registerGamePage.waitForWebElementToAppear(registerGamePage.getFinalRegButton());
+    }
 
     @Test
     @Tag("smoke")
@@ -59,12 +53,10 @@ public class RegistrationTeamTest extends BaseTest {
     @Severity(SeverityLevel.CRITICAL)
     public void registerTeamValidation() {
         Map<String, String> dataMap = getDataMap();
-        UpcomingGamesPage upcomingGamesPage = loginAndNavigateToUpcomingGames(dataMap);
-        RegisterGamePage registerGamePage = navigateToRegisterGamePage(upcomingGamesPage);
-        fillPersonalDataAndProceed(registerGamePage, dataMap);
-        registerGamePage.fillTeamData(dataMap.get(TEAM), Integer.parseInt(dataMap.get(NUMBER_OF_TEAMMATES)));
-        registerGamePage.clickFurtherButton();
-        registerGamePage.waitForWebElementToAppear(registerGamePage.getFinalRegButton());
+        loginAndNavigateToUpcomingGames(dataMap);
+        navigateToRegisterGamePage();
+        fillPersonalDataAndProceed(dataMap);
+        fillTeamDataAndProceed(dataMap);
         assertTrue(registerGamePage.getFinalRegButton().isDisplayed() && registerGamePage.getFinalRegButton().isEnabled());
         // registerGamePage.registerTeam();
     }
@@ -74,7 +66,6 @@ public class RegistrationTeamTest extends BaseTest {
     @DisplayName("Verify login data in input fields matches Excel data")
     public void loginDataInExcelValidation() {
         Map<String, String> dataMap = getDataMap();
-        LandingPage landingPage = new LandingPage(driver);
         landingPage.closeCookieAlert();
         landingPage.loginApplication(dataMap.get(EMAIL), dataMap.get(PASSWORD));
         landingPage.logMaskedSensitiveInfo(dataMap.get(EMAIL), dataMap.get(PASSWORD));
@@ -86,26 +77,17 @@ public class RegistrationTeamTest extends BaseTest {
     @Tag("positive")
     @DisplayName("Verify name, phone, email data in input fields matches Excel data")
     public void personalDataInExcelValidation() {
-        Map<String, String> dataMap = ExcelUtils.getExcelDataToMap(ExcelUtils.getPathToResourceFile(SHEET_DATA_FILE));
-        LandingPage landingPage = new LandingPage(driver);
+        Map<String, String> dataMap = getDataMap();
 
         landingPage.closeCookieAlert();
-        UpcomingGamesPage upcomingGamesPage = landingPage.loginApplication(dataMap.get(EMAIL), dataMap.get(PASSWORD));
-
+        upcomingGamesPage = landingPage.loginApplication(dataMap.get(EMAIL), dataMap.get(PASSWORD));
         landingPage.logMaskedSensitiveInfo(dataMap.get(EMAIL), dataMap.get(PASSWORD));
-
         upcomingGamesPage.getUpcomingGamesList();
-
         WebElement gameElement = upcomingGamesPage.getGameByType(MOZGO_QUIZ_GAME_TYPE);
         assertNotNull(gameElement);
-
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-
-        RegisterGamePage registerGamePage = upcomingGamesPage.clickOnRegisterButton(gameElement);
-
-        WebElement modalElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("modal")));
-        wait.until(ExpectedConditions.elementToBeClickable(modalElement));
-
+        registerGamePage = upcomingGamesPage.clickOnRegisterButton(gameElement);
+        WebElement modalElement = registerGamePage.waitForElementToAppear(By.className("modal"));
+        registerGamePage.waitForWebElementToBeClickable(modalElement);
         registerGamePage.fillPersonalData(dataMap.get(NAME), dataMap.get(PHONE), dataMap.get(EMAIL));
         registerGamePage.logMaskedSensitiveInfo(dataMap.get(NAME), dataMap.get(PHONE), dataMap.get(EMAIL));
         assertTrue(dataMap.containsValue(registerGamePage.getFio()));
@@ -118,26 +100,17 @@ public class RegistrationTeamTest extends BaseTest {
     @Tag("positive")
     @DisplayName("Verify team name and number of teammates in input fields matches Excel data")
     public void teamDataInExcelValidation() {
-        Map<String, String> dataMap = ExcelUtils.getExcelDataToMap(ExcelUtils.getPathToResourceFile(SHEET_DATA_FILE));
-        LandingPage landingPage = new LandingPage(driver);
+        Map<String, String> dataMap = getDataMap();
 
         landingPage.closeCookieAlert();
-        UpcomingGamesPage upcomingGamesPage = landingPage.loginApplication(dataMap.get(EMAIL), dataMap.get(PASSWORD));
-
+        upcomingGamesPage = landingPage.loginApplication(dataMap.get(EMAIL), dataMap.get(PASSWORD));
         landingPage.logMaskedSensitiveInfo(dataMap.get(EMAIL), dataMap.get(PASSWORD));
-
         upcomingGamesPage.getUpcomingGamesList();
-
         WebElement gameElement = upcomingGamesPage.getGameByType(MOZGO_QUIZ_GAME_TYPE);
         assertNotNull(gameElement);
-
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-
-        RegisterGamePage registerGamePage = upcomingGamesPage.clickOnRegisterButton(gameElement);
-
-        WebElement modalElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("modal")));
-        wait.until(ExpectedConditions.elementToBeClickable(modalElement));
-
+        registerGamePage = upcomingGamesPage.clickOnRegisterButton(gameElement);
+        WebElement modalElement = registerGamePage.waitForElementToAppear(By.className("modal"));
+        registerGamePage.waitForWebElementToBeClickable(modalElement);
         registerGamePage.fillPersonalData(dataMap.get(NAME), dataMap.get(PHONE), dataMap.get(EMAIL));
         registerGamePage.logMaskedSensitiveInfo(dataMap.get(NAME), dataMap.get(PHONE), dataMap.get(EMAIL));
         registerGamePage.clickFurtherButton();
