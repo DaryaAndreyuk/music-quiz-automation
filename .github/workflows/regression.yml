@@ -1,24 +1,20 @@
-name: Full Regression Test
+  name: Full Regression Test
 
-on:
-  workflow_dispatch:
-  push:
-    branches: [ "fb_DaryaAndreyuk_16_AddJobManualTrigger" ]
-  pull_request:
-    branches: [ "fb_DaryaAndreyuk_16_AddJobManualTrigger" ]
+  on:
+    workflow_dispatch:
 
-jobs:
-  regression:
-    runs-on: ubuntu-latest
+  jobs:
+    regression:
+      runs-on: ubuntu-latest
 
-    services:
-      selenium:
-        image: selenium/standalone-chrome:latest
-        options: --shm-size 2g
-        ports:
-          - 4444:4444
+      services:
+        selenium:
+          image: selenium/standalone-chrome:latest
+          options: --shm-size 2g
+          ports:
+            - 4444:4444
 
-    steps:
+      steps:
         - name: Checkout repository
           uses: actions/checkout@v4
 
@@ -70,4 +66,3 @@ jobs:
               git push
             else
               echo "No changes to commit"
-            fi
