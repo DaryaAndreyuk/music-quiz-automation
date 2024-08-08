@@ -53,7 +53,7 @@ public class RegistrationTeamTest extends BaseTest {
     @Description("Verify team registration process")
     @Severity(SeverityLevel.CRITICAL)
     public void registerTeamValidation() {
-        Map<String, String> dataMap = getDataMap();
+        Map<String, String> dataMap = retrieveDataMap();
         loginAndNavigateToUpcomingGames(dataMap);
         navigateToRegisterGamePage();
         fillPersonalDataAndProceed(dataMap);
@@ -66,7 +66,7 @@ public class RegistrationTeamTest extends BaseTest {
     @Tag("positive")
     @DisplayName("Verify login data in input fields matches Excel data")
     public void loginDataInExcelValidation() {
-        Map<String, String> dataMap = getDataMap();
+        Map<String, String> dataMap = retrieveDataMap();
         landingPage.closeCookieAlert();
         landingPage.loginApplication(dataMap.get(EMAIL), dataMap.get(PASSWORD));
         landingPage.logMaskedSensitiveInfo(dataMap.get(EMAIL), dataMap.get(PASSWORD));
@@ -78,7 +78,7 @@ public class RegistrationTeamTest extends BaseTest {
     @Tag("positive")
     @DisplayName("Verify name, phone, email data in input fields matches Excel data")
     public void personalDataInExcelValidation() {
-        Map<String, String> dataMap = getDataMap();
+        Map<String, String> dataMap = retrieveDataMap();
 
         landingPage.closeCookieAlert();
         upcomingGamesPage = landingPage.loginApplication(dataMap.get(EMAIL), dataMap.get(PASSWORD));
@@ -101,7 +101,7 @@ public class RegistrationTeamTest extends BaseTest {
     @Tag("positive")
     @DisplayName("Verify team name and number of teammates in input fields matches Excel data")
     public void teamDataInExcelValidation() {
-        Map<String, String> dataMap = getDataMap();
+        Map<String, String> dataMap = retrieveDataMap();
 
         landingPage.closeCookieAlert();
         upcomingGamesPage = landingPage.loginApplication(dataMap.get(EMAIL), dataMap.get(PASSWORD));

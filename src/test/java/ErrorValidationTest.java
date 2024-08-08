@@ -24,7 +24,7 @@ public class ErrorValidationTest extends BaseTest {
     @DisplayName("Verify error message for invalid login credentials")
     @Description("This test attempts to log into the website using a login and a password")
     public void loginErrorValidation() {
-        performLoginAndCheckError("wrong.email@gmail.com", "Stronbbbssword1!", "Учётные данные не найдены в базе.");
+        performLoginAndCheckError(DATA_NOT_FOUND_IN_DB_MESSAGE, "Stronbbbssword1!", "wrong.email@gmail.com");
     }
 
     @Test
@@ -32,7 +32,7 @@ public class ErrorValidationTest extends BaseTest {
     @DisplayName("Verify error message for empty username")
     @Description("This test verifies error message when attempting to enter empty username")
     public void emptyUserNameErrorValidation() {
-        validateErrorMessage("Заполните, пожалуйста, все необходимые поля.", "", "375294999632", "dsfd@fgfds.com");
+        validateErrorMessage(FILL_ALL_THE_FIELDS_MESSAGE, "", "375294999632", "dsfd@fgfds.com");
     }
 
     @Test
@@ -40,7 +40,7 @@ public class ErrorValidationTest extends BaseTest {
     @DisplayName("Verify error message for empty phone")
     @Description("This test verifies error message when attempting to enter empty phone number")
     public void emptyPhoneErrorValidation() {
-        validateErrorMessage("Заполните, пожалуйста, все необходимые поля.", "TestName", "", "dsfd@fgfds.com");
+        validateErrorMessage(FILL_ALL_THE_FIELDS_MESSAGE, "TestName", "", "dsfd@fgfds.com");
     }
 
     @Test
@@ -48,7 +48,7 @@ public class ErrorValidationTest extends BaseTest {
     @DisplayName("Verify error message for empty email")
     @Description("This test verifies error message when attempting to enter empty email")
     public void emptyEmailErrorValidation() {
-        validateErrorMessage("Заполните, пожалуйста, все необходимые поля.", "TestName", "375294999632", "");
+        validateErrorMessage(FILL_ALL_THE_FIELDS_MESSAGE, "TestName", "375294999632", "");
     }
 
     @ParameterizedTest
@@ -59,7 +59,7 @@ public class ErrorValidationTest extends BaseTest {
             "missingatsymbol.com"
     })
     void emailFormatErrorValidation(String email) {
-        validateErrorMessage("Email неверного формата.", "TestName", "375294999632", email);
+        validateErrorMessage(EMAIL_INCORRECT_FORMAT_MESSAGE, "TestName", "375294999632", email);
     }
 
     @ParameterizedTest
@@ -67,18 +67,18 @@ public class ErrorValidationTest extends BaseTest {
     @DisplayName("Verify error message for invalid phone format")
     @ValueSource(strings = {"1", "1234", "12345678"})
     void phoneFormatErrorValidation(String phoneNumber) {
-        validateErrorMessage("Укажите полноценный номер телефона.", "TestName", phoneNumber, "dsfd@fgfds.com");
+        validateErrorMessage(EXPECT_CORRECT_PHONE_NUMBER_MESSAGE, "TestName", phoneNumber, "dsfd@fgfds.com");
     }
 
     @Test
     @Tag("negative")
     @DisplayName("Verify error message for empty team name")
     public void emptyTeamNameErrorValidation() {
-        Map<String, String> dataMap = getDataMap();
-        RegisterGamePage registerGamePage = getDataAndPerformLogin();
+        Map<String, String> dataMap = retrieveDataMap();
+        RegisterGamePage registerGamePage = initializeAndGetRegisterGamePage();
         fillPersonalDataAndProceed(registerGamePage, dataMap);
         registerGamePage.fillTeamData("", 5);
-        clickAndValidateErrorMessage("Заполните, пожалуйста, все необходимые поля.", registerGamePage);
+        clickAndValidateErrorMessage(FILL_ALL_THE_FIELDS_MESSAGE, registerGamePage);
     }
 
     private void fillPersonalDataAndProceed(RegisterGamePage registerGamePage, Map<String, String> dataMap) {
@@ -88,7 +88,7 @@ public class ErrorValidationTest extends BaseTest {
     }
 
     private void validateErrorMessage(String expectedErrorMessage, String name, String phone, String email) {
-        RegisterGamePage registerGamePage = getDataAndPerformLogin();
+        RegisterGamePage registerGamePage = initializeAndGetRegisterGamePage();
         registerGamePage.fillPersonalData(name, phone, email);
         clickAndValidateErrorMessage(expectedErrorMessage, registerGamePage);
     }
@@ -98,20 +98,28 @@ public class ErrorValidationTest extends BaseTest {
         assertEquals(expectedErrorMessage, registerGamePage.getErrorMessage());
     }
 
+    private void loginAndGoToUpcomingGames(Map<String, String> dataMap) {
+        performLogin(dataMap);
+        accessUpcomingGamesList();
+    }
+
     private void performLogin(Map<String, String> dataMap) {
         landingPage.closeCookieAlert();
         upcomingGamesPage = landingPage.loginApplication(dataMap.get(EMAIL), dataMap.get(PASSWORD));
         landingPage.logMaskedSensitiveInfo(dataMap.get(EMAIL), dataMap.get(PASSWORD));
+    }
+
+    private void accessUpcomingGamesList() {
         upcomingGamesPage.getUpcomingGamesList();
     }
 
-    private RegisterGamePage getDataAndPerformLogin() {
-        Map<String, String> dataMap = getDataMap();
-        performLogin(dataMap);
-        return getRegisterGamePage();
+    private RegisterGamePage initializeAndGetRegisterGamePage() {
+        Map<String, String> dataMap = retrieveDataMap();
+        loginAndGoToUpcomingGames(dataMap);
+        return retrieveRegisterGamePage();
     }
 
-    private RegisterGamePage getRegisterGamePage() {
+    private RegisterGamePage retrieveRegisterGamePage() {
         WebElement gameElement = upcomingGamesPage.getGameByType(MOZGO_QUIZ_GAME_TYPE);
         assertNotNull(gameElement);
         RegisterGamePage registerGamePage = upcomingGamesPage.clickOnRegisterButton(gameElement);

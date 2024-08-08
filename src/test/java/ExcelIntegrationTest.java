@@ -32,7 +32,7 @@ public class ExcelIntegrationTest extends BaseTest {
     @DisplayName("Verify handling when XLSX file for parsing is empty")
     public void testEmptyFile() {
         Map<String, String> dataMap = ExcelUtils.getExcelDataToMap(ExcelUtils.getPathToResourceFile(EMPTY_SHEET_DATA_FILE));
-        performLoginAndCheckError(dataMap.get(EMAIL), dataMap.get(PASSWORD), "Поле E-mail имеет неверный формат. (and 1 more error)");
+        performLoginAndCheckError(EMAIL_INCORRECT_FORMAT_EXTENDED_MESSAGE, dataMap.get(PASSWORD), dataMap.get(EMAIL));
     }
 
     @Test
@@ -41,6 +41,6 @@ public class ExcelIntegrationTest extends BaseTest {
     public void testMissingRequiredField() {
         Map<String, String> dataMap = ExcelUtils.getExcelDataToMap(ExcelUtils.getPathToResourceFile(MISSING_REQUIRED_SHEET_DATA_FILE));
         assertTrue(dataMap.get(PASSWORD).isEmpty());
-        performLoginAndCheckError(dataMap.get(EMAIL), dataMap.get(PASSWORD), "Поле Пароль обязательно для заполнения.");
+        performLoginAndCheckError(PASSWORD_IS_REQUIRED_MESSAGE, dataMap.get(PASSWORD), dataMap.get(EMAIL));
     }
 }

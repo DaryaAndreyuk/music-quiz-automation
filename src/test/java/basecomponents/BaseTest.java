@@ -29,7 +29,7 @@ public class BaseTest {
         driver = initializeChromeDriver();
         driverThreadLocal.set(driver);
         driver.get(MOZGO_QUIZ_URL);
-        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(2));
         landingPage = new LandingPage(driver);
     }
 
@@ -62,11 +62,11 @@ public class BaseTest {
         }
     }
 
-    public static Map<String, String> getDataMap() {
+    public static Map<String, String> retrieveDataMap() {
         return ExcelUtils.getExcelDataToMap(ExcelUtils.getPathToResourceFile(SHEET_DATA_FILE));
     }
 
-    public void performLoginAndCheckError(String email, String password, String expectedErrorMessage) {
+    public void performLoginAndCheckError(String expectedErrorMessage, String password, String email) {
         landingPage.closeCookieAlert();
         landingPage.loginApplication(email, password);
         if (!email.isEmpty() || !password.isEmpty()) {
