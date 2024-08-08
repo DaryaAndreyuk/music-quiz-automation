@@ -31,8 +31,7 @@ public class RegistrationTeamTest extends BaseTest {
         WebElement gameElement = upcomingGamesPage.getGameByType(MOZGO_QUIZ_GAME_TYPE);
         assertNotNull(gameElement);
         registerGamePage = upcomingGamesPage.clickOnRegisterButton(gameElement);
-        WebElement modalElement = registerGamePage.waitForElementToAppear(By.className("modal"));
-        registerGamePage.waitForWebElementToBeClickable(modalElement);
+        waitForModalElement();
     }
 
     private void fillPersonalDataAndProceed(Map<String, String> dataMap) {
@@ -87,8 +86,7 @@ public class RegistrationTeamTest extends BaseTest {
         WebElement gameElement = upcomingGamesPage.getGameByType(MOZGO_QUIZ_GAME_TYPE);
         assertNotNull(gameElement);
         registerGamePage = upcomingGamesPage.clickOnRegisterButton(gameElement);
-        WebElement modalElement = registerGamePage.waitForElementToAppear(By.className("modal"));
-        registerGamePage.waitForWebElementToBeClickable(modalElement);
+        waitForModalElement();
         registerGamePage.fillPersonalData(dataMap.get(NAME), dataMap.get(PHONE), dataMap.get(EMAIL));
         registerGamePage.logMaskedSensitiveInfo(dataMap.get(NAME), dataMap.get(PHONE), dataMap.get(EMAIL));
         assertTrue(dataMap.containsValue(registerGamePage.getFio()));
@@ -110,8 +108,7 @@ public class RegistrationTeamTest extends BaseTest {
         WebElement gameElement = upcomingGamesPage.getGameByType(MOZGO_QUIZ_GAME_TYPE);
         assertNotNull(gameElement);
         registerGamePage = upcomingGamesPage.clickOnRegisterButton(gameElement);
-        WebElement modalElement = registerGamePage.waitForElementToAppear(By.className("modal"));
-        registerGamePage.waitForWebElementToBeClickable(modalElement);
+        waitForModalElement();
         registerGamePage.fillPersonalData(dataMap.get(NAME), dataMap.get(PHONE), dataMap.get(EMAIL));
         registerGamePage.logMaskedSensitiveInfo(dataMap.get(NAME), dataMap.get(PHONE), dataMap.get(EMAIL));
         registerGamePage.clickFurtherButton();
@@ -119,5 +116,10 @@ public class RegistrationTeamTest extends BaseTest {
         assertTrue(dataMap.containsValue(registerGamePage.getTeamName()));
         assertTrue(dataMap.containsValue(registerGamePage.getNumberOfPlayers()));
         registerGamePage.clickFurtherButton();
+    }
+
+    private void waitForModalElement() {
+        WebElement modalElement = registerGamePage.waitForElementToAppear(By.className("modal"));
+        registerGamePage.waitForWebElementToBeClickable(modalElement);
     }
 }

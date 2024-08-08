@@ -21,6 +21,9 @@ public final class Constants {
     public static final String EXPECT_CORRECT_PHONE_NUMBER_MESSAGE = "Укажите полноценный номер телефона.";
     public static final String EMAIL_INCORRECT_FORMAT_MESSAGE = "Email неверного формата.";
     public static final String DATA_NOT_FOUND_IN_DB_MESSAGE = "Учётные данные не найдены в базе.";
+    public static final String TEST_NAME = "TestName";
+    public static final String TEST_EMAIL = "test.email@test.com";
+    public static final String TEST_NUMBER = "375294999632";
 
     private Constants() {
         throw new IllegalStateException("Utility class");

@@ -32,7 +32,7 @@ public class ErrorValidationTest extends BaseTest {
     @DisplayName("Verify error message for empty username")
     @Description("This test verifies error message when attempting to enter empty username")
     public void emptyUserNameErrorValidation() {
-        validateErrorMessage(FILL_ALL_THE_FIELDS_MESSAGE, "", "375294999632", "dsfd@fgfds.com");
+        validateErrorMessage(FILL_ALL_THE_FIELDS_MESSAGE, "", TEST_NUMBER, TEST_EMAIL);
     }
 
     @Test
@@ -40,7 +40,7 @@ public class ErrorValidationTest extends BaseTest {
     @DisplayName("Verify error message for empty phone")
     @Description("This test verifies error message when attempting to enter empty phone number")
     public void emptyPhoneErrorValidation() {
-        validateErrorMessage(FILL_ALL_THE_FIELDS_MESSAGE, "TestName", "", "dsfd@fgfds.com");
+        validateErrorMessage(FILL_ALL_THE_FIELDS_MESSAGE, TEST_NAME, "", TEST_EMAIL);
     }
 
     @Test
@@ -48,7 +48,7 @@ public class ErrorValidationTest extends BaseTest {
     @DisplayName("Verify error message for empty email")
     @Description("This test verifies error message when attempting to enter empty email")
     public void emptyEmailErrorValidation() {
-        validateErrorMessage(FILL_ALL_THE_FIELDS_MESSAGE, "TestName", "375294999632", "");
+        validateErrorMessage(FILL_ALL_THE_FIELDS_MESSAGE, TEST_NAME, TEST_NUMBER, "");
     }
 
     @ParameterizedTest
@@ -59,7 +59,7 @@ public class ErrorValidationTest extends BaseTest {
             "missingatsymbol.com"
     })
     void emailFormatErrorValidation(String email) {
-        validateErrorMessage(EMAIL_INCORRECT_FORMAT_MESSAGE, "TestName", "375294999632", email);
+        validateErrorMessage(EMAIL_INCORRECT_FORMAT_MESSAGE, TEST_NAME, TEST_NUMBER, email);
     }
 
     @ParameterizedTest
@@ -67,7 +67,7 @@ public class ErrorValidationTest extends BaseTest {
     @DisplayName("Verify error message for invalid phone format")
     @ValueSource(strings = {"1", "1234", "12345678"})
     void phoneFormatErrorValidation(String phoneNumber) {
-        validateErrorMessage(EXPECT_CORRECT_PHONE_NUMBER_MESSAGE, "TestName", phoneNumber, "dsfd@fgfds.com");
+        validateErrorMessage(EXPECT_CORRECT_PHONE_NUMBER_MESSAGE, TEST_NAME, phoneNumber, TEST_EMAIL);
     }
 
     @Test
