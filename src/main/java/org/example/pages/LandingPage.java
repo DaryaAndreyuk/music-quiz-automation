@@ -42,7 +42,7 @@ public class LandingPage extends AbstractComponent {
 
     public void performLogin(String userEmail, String userPassword) {
         authSubmitClick();
-        sendSensitiveData( userEmail,  userPassword);
+        sendSensitiveData(userEmail,  userPassword);
         submitLogin();
     }
 
@@ -56,7 +56,7 @@ public class LandingPage extends AbstractComponent {
         submitButton.click();
     }
 
-    public  void logMaskedSensitiveInfo(String userEmail, String userPassword) {
+    public void logMaskedSensitiveInfo(String userEmail, String userPassword) {
         String maskedEmail = maskEmail(userEmail);
         String maskedPassword = maskPassword(userPassword);
         Allure.step("Email: " + maskedEmail);

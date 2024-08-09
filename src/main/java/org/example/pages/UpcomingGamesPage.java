@@ -3,11 +3,12 @@ package org.example.pages;
 import io.qameta.allure.Step;
 import org.example.utils.AbstractComponent;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import java.util.List;
 
 public class UpcomingGamesPage extends AbstractComponent {
@@ -33,10 +34,15 @@ public class UpcomingGamesPage extends AbstractComponent {
 
     @Step("Clicking on button \"Сыграть\"")
     public void getUpcomingGamesList() {
-        waitForWebElementToBeClickable(mainMozgoQuizElement);
-        mainMozgoQuizElement.click();
+        clickElement(mainMozgoQuizElement);
         closeCookieAlert();
-        playButton.click();
+        clickElement(playButton);
+    }
+
+    private void clickElement(WebElement element) {
+        waitForWebElementToBeClickable(element);
+        Actions actions = new Actions(driver);
+        actions.moveToElement(element).click().perform();
     }
 
     @Step("Choosing game with type {0}")
@@ -50,7 +56,8 @@ public class UpcomingGamesPage extends AbstractComponent {
         waitForElementToAppear(buttonForRegisterLocator);
         WebElement button = gameElement.findElement(buttonForRegisterLocator);
         waitForWebElementToBeClickable(button);
-        button.click();
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", button);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", button);
         return new RegisterGamePage(driver);
     }
 }

@@ -6,11 +6,7 @@ import org.example.utils.AbstractComponent;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
 import java.util.Arrays;
 import java.util.List;
 
@@ -57,13 +53,13 @@ public class RegisterGamePage extends AbstractComponent {
 
     public void fillPersonalData(String name, String phone, String email) {
         clearInputs();
-        performFillingInputs(name, phone, email);
+        fillInputs(name, phone, email);
     }
 
-    private void performFillingInputs(String name, String phone, String email) {
-        fillInputField(fioInput, name);
-        fillInputField(phoneInput, phone);
-        fillInputField(emailInput, email);
+    private void fillInputs(String name, String phone, String email) {
+        fillInput(fioInput, name);
+        fillInput(phoneInput, phone);
+        fillInput(emailInput, email);
     }
 
     public void logMaskedSensitiveInfo(String userName, String userPhone, String userEmail) {
@@ -80,7 +76,7 @@ public class RegisterGamePage extends AbstractComponent {
         furtherButton.click();
     }
 
-    private void fillInputField(WebElement inputField, String value) {
+    private void fillInput(WebElement inputField, String value) {
         if (value.isEmpty()) {
             inputField.sendKeys(" ");
             inputField.sendKeys(Keys.BACK_SPACE);

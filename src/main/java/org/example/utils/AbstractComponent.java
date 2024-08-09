@@ -53,9 +53,9 @@ public class AbstractComponent {
         return errorMessage.getText();
     }
 
-    public void waitForElementToAppear(By locator) {
+    public WebElement waitForElementToAppear(By locator) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
     public void waitForWebElementToAppear(WebElement webElement) {

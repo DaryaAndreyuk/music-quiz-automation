@@ -1,36 +1,26 @@
 package basecomponents;
-
-import io.qameta.allure.Step;
 import org.example.pages.LandingPage;
-import org.example.pages.RegisterGamePage;
-import org.example.pages.UpcomingGamesPage;
 import org.example.utils.ExcelUtils;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import io.qameta.allure.Allure;
-import io.qameta.allure.model.Parameter;
-import java.time.Duration;
-
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.time.Duration;
 import java.util.Map;
-
 import static org.example.utils.Constants.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 @ExtendWith(AllureScreenshotExtension.class)
 public class BaseTest {
 
     public WebDriver driver;
+    public WebDriverWait wait;
     public LandingPage landingPage;
     protected ThreadLocal<WebDriver> driverThreadLocal = new ThreadLocal<>();
 
@@ -39,6 +29,7 @@ public class BaseTest {
         driver = initializeChromeDriver();
         driverThreadLocal.set(driver);
         driver.get(MOZGO_QUIZ_URL);
+        wait = new WebDriverWait(driver, Duration.ofSeconds(2));
         landingPage = new LandingPage(driver);
     }
 
@@ -71,24 +62,16 @@ public class BaseTest {
         }
     }
 
-    @Step("Initialize register page")
-    public RegisterGamePage initializeRegisterPage() {
-        String filePath = ExcelUtils.getPathToResourceFile(SHEET_DATA_FILE);
-        Map<String, String> dataMap = ExcelUtils.getExcelDataToMap(filePath);
-        landingPage.closeCookieAlert();
-        UpcomingGamesPage upcomingGamesPage = landingPage.loginApplication(dataMap.get(EMAIL), dataMap.get(PASSWORD));
-        upcomingGamesPage.getUpcomingGamesList();
-        WebElement gameElement = upcomingGamesPage.getGameByType(MOZGO_QUIZ_GAME_TYPE);
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.visibilityOf(gameElement));
-        assertNotEquals(null, gameElement);
-        return upcomingGamesPage.clickOnRegisterButton(gameElement);
+    public static Map<String, String> retrieveDataMap() {
+        return ExcelUtils.getExcelDataToMap(ExcelUtils.getPathToResourceFile(SHEET_DATA_FILE));
     }
 
-    @Step("Perform Login And Check Error")
-    public void performLoginAndCheckError(String email, String password, String expectedErrorMessage) {
+    public void performLoginAndCheckError(String expectedErrorMessage, String password, String email) {
         landingPage.closeCookieAlert();
         landingPage.loginApplication(email, password);
+        if (!email.isEmpty() || !password.isEmpty()) {
+            landingPage.logMaskedSensitiveInfo(email, password);
+        }
         assertEquals(expectedErrorMessage, landingPage.getErrorMessage());
     }
 
