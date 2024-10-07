@@ -1,4 +1,67 @@
-# MusicQuizAutomation
+# Music Quiz UI Automation framework
+
+## This is portfolio project on automation of test scripts using UI tests for  [wro.mzgb.net](https://wro.mzgb.net/)
+
+## Contents:
+
+- [Technology stack used](https://github.com/DaryaAndreyuk/PetStoreAPITesting/tree/fb_DaryaAndreyuk_8_AddReadMe?tab=readme-ov-file#technology-stack-used)
+- [Running the Tests from the terminal](https://github.com/DaryaAndreyuk/PetStoreAPITesting/tree/fb_DaryaAndreyuk_8_AddReadMe?tab=readme-ov-file#running-the-tests)
+- [Viewing Allure Reports](https://github.com/DaryaAndreyuk/PetStoreAPITesting/tree/fb_DaryaAndreyuk_8_AddReadMe?tab=readme-ov-file#viewing-allure-reports)
+- [Build with Github Actions](https://github.com/DaryaAndreyuk/PetStoreAPITesting/tree/fb_DaryaAndreyuk_8_AddReadMe?tab=readme-ov-file#build-with-jenkins)
+
+## Technology stack used
+
+<p align="center" dir="auto">
+<a href="https://www.jetbrains.com/idea/" rel="nofollow"><img width="11%" title="IntelliJ IDEA" src="images/logo/Intelij_IDEA.svg" alt="Intellij_IDEA" style="max-width: 100%;"></a>
+<a href="https://www.java.com/" rel="nofollow"><img width="11%" title="Java" src="images/logo/Java.svg" alt="Java" style="max-width: 100%;"></a>
+<a href="https://allurereport.org/" rel="nofollow"><img width="11%" title="Allure Report" src="images/logo/Allure_Report.svg" alt="Allure_Report" style="max-width: 100%;"></a>
+<a href="https://maven.org/" rel="nofollow"><img width="11%" title="Gradle" src="images/logo/Maven.svg" alt="Gradle" style="max-width: 100%;"></a>
+<a href="https://www.githubactions.io/" rel="nofollow"><img width="11%" title="Github Actions" src="images/logo/Jenkins.svg" alt="Jenkins" style="max-width: 100%;"></a>
+<a href="https://github.com/"><img width="12%" title="GitHub" src="images/logo/GitHub.svg" alt="GitHub" style="max-width: 100%;"></a>
+<a href="https://selenium.io/" rel="nofollow"><img width="11%" title="Selenium" src="images/logo/Selenium.png" alt="RestAssured" style="max-width: 100%;"></a>
+<a href="https://seleniumgrid.io/" rel="nofollow"><img width="11%" title="Selenium Grid" src="images/logo/Selenium%20Grid.png" alt="RestAssured" style="max-width: 100%;"></a>
+<a href="https://junit.org/" rel="nofollow"><img width="12%" title="TestNG" src="images/logo/JUnit5.svg" alt="TestNG" style="max-width: 100%;"></a>
+
+</p>
+
+In this project, automated tests are written in `Java 21` using the `Selenium` framework for UI testing.
+
+- `Maven` is used as the build tool.
+- `JUnit5` is the testing framework.
+- `Allure` is applied for generating test reports.
+
+## Running the Tests
+
+To execute the tests, run the following command in the CLI:
+
+`mvn clean test`
+
+## Viewing Allure Reports
+
+After running the tests, you can view the Allure reports by executing:
+
+`mvn allureServe`
+
+## Example of Allure Report
+
+<img src="images/AllureExample.png" alt="AllureReportExample" />
+
+## Report with test results
+
+
+
+## Build with Github Actions
+
+
+
+## See Allure Report from Github Pages
+
+
+
+
+If you have any comments or suggestions, please feel free to contact me
+at: [dasha.andreyuk@gmail.com](dasha.andreyuk@gmail.com)
+
 
 ## Instructions to Create a Valid `Sheet.xlsx` File
 
