@@ -37,21 +37,27 @@ In this project, automated tests are written in `Java 21` using the `Selenium` f
 
 ## Running the Tests
 
-To execute the tests, run the following command in the CLI:
+To execute all the tests, run the following command in the CLI: `mvn clean test -Pregression-tests`
 
-`mvn clean test`
+To execute only smoke tests, run the following command in the CLI: `mvn clean test -Psmoke-tests`
+
+To execute only positive tests, run the following command in the CLI: `mvn clean test -Ppositive-tests`
+
+To execute only negative tests, run the following command in the CLI: `mvn clean test -Pnegative-tests`
 
 ## Viewing Allure Reports
 
 After running the tests, you can view the Allure reports by executing:
 
-`mvn allureServe`
+`mvn allure:report`
 
 ## Example of Allure Report
 
+<img src="images/screens/AllureExample.png" alt="AllureReportExample" />
 
 ## Report with test results
 
+<img src="images/screens/AllureSteps.png" alt="Allure Steps" />
 
 
 ## Build with Github Actions
