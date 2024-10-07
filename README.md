@@ -5,9 +5,10 @@
 ## Contents:
 
 - [Technology stack used](https://github.com/DaryaAndreyuk/music-quiz-automation/tree/fb_DaryaAndreyuk_18_AddReadMe?tab=readme-ov-file#technology-stack-used)
-- [Running the Tests from the terminal](https://github.com/DaryaAndreyuk/PetStoreAPITesting/tree/fb_DaryaAndreyuk_8_AddReadMe?tab=readme-ov-file#running-the-tests)
-- [Viewing Allure Reports](https://github.com/DaryaAndreyuk/PetStoreAPITesting/tree/fb_DaryaAndreyuk_8_AddReadMe?tab=readme-ov-file#viewing-allure-reports)
-- [Build with Github Actions](https://github.com/DaryaAndreyuk/PetStoreAPITesting/tree/fb_DaryaAndreyuk_8_AddReadMe?tab=readme-ov-file#build-with-jenkins)
+- [Instructions to Create a Valid `Sheet.xlsx` File] (https://github.com/DaryaAndreyuk/music-quiz-automation/tree/fb_DaryaAndreyuk_18_AddReadMe?tab=readme-ov-file#instructions-to-create-a-valid-sheet-xslx-file)
+- [Running the Tests from the terminal](https://github.com/DaryaAndreyuk/music-quiz-automation/tree/fb_DaryaAndreyuk_18_AddReadMe?tab=readme-ov-file#running-the-tests)
+- [Viewing Allure Reports](https://github.com/DaryaAndreyuk/music-quiz-automation/tree/fb_DaryaAndreyuk_18_AddReadMe?tab=readme-ov-file#viewing-allure-reports)
+- [Build with Github Actions](https://github.com/DaryaAndreyuk/music-quiz-automation/tree/fb_DaryaAndreyuk_18_AddReadMe?tab=readme-ov-file#build-with-github-actions)
 
 ## Technology stack used
 
@@ -34,6 +35,35 @@ In this project, automated tests are written in `Java 21` using the `Selenium` f
 - Configured cloud-based testing with `Selenium Grid` for distributed and parallel test execution.
 - Ensured security by masking sensitive data in the reports and automation processes.
 - Implemented parameterized testing to optimize test case flexibility and scalability using `JUnit` annotations
+
+
+## Instructions to Create a Valid `Sheet.xlsx` File
+
+To create a valid `src/test/resources/data/Sheet.xlsx` file based on a template, follow these steps:
+
+### Step 1: Locate the Template
+
+A template file named `SheetTemplate.xlsx` is provided in the repository at `src/test/resources/data/SheetTemplate.xlsx`.
+
+### Step 2: Copy the Template
+
+Copy the `SheetTemplate.xlsx` file to create a new file named `Sheet.xlsx` in the same directory.
+
+### Step 3: Open the Sheet.xlsx file in Excel or any other spreadsheet editor.
+Make sure to fill in the required data fields as shown below:
+
+### Example `Sheet.xlsx`
+
+Here’s a detailed view of what the `SheetTemplate.xlsx` file should contain:
+
+| Name                | John              |
+| Phone               | 48152829319       |
+| Email               | test@testmail.com |
+| Team                | DreamTeam         |
+| Number of teammates | 7                 |
+| Password            | strongpass!@#$%57 |
+
+Make sure each field corresponds to the expected format and content based on your application's requirements.
 
 ## Running the Tests
 
@@ -72,32 +102,4 @@ After running the tests, you can view the Allure reports by executing:
 If you have any comments or suggestions, please feel free to contact me
 at: [dasha.andreyuk@gmail.com](dasha.andreyuk@gmail.com)
 
-
-## Instructions to Create a Valid `Sheet.xlsx` File
-
-To create a valid `src/test/resources/data/Sheet.xlsx` file based on a template, follow these steps:
-
-### Step 1: Locate the Template
-
-A template file named `SheetTemplate.xlsx` is provided in the repository at `src/test/resources/data/SheetTemplate.xlsx`.
-
-### Step 2: Copy the Template
-
-Copy the `SheetTemplate.xlsx` file to create a new file named `Sheet.xlsx` in the same directory.
-
- ### Step 3: Open the Sheet.xlsx file in Excel or any other spreadsheet editor.
-Make sure to fill in the required data fields as shown below:
-
-### Example `Sheet.xlsx`
-
-Here’s a detailed view of what the `SheetTemplate.xlsx` file should contain:
-
-| Name                | John              |
-| Phone               | 48152829319       |
-| Email               | test@testmail.com |
-| Team                | DreamTeam         |
-| Number of teammates | 7                 |
-| Password            | strongpass!@#$%57 |
-
-Make sure each field corresponds to the expected format and content based on your application's requirements.
 
