@@ -12,15 +12,15 @@
 ## Technology stack used
 
 <p align="center" dir="auto">
+<a href="https://www.selenium.dev/" rel="nofollow"><img width="11%" title="Selenium" src="images/logo/Selenium.png" alt="Selenium" style="max-width: 100%;"></a>
+<a href="https://www.selenium.dev/documentation/grid/" rel="nofollow"><img width="11%" title="Selenium Grid" src="images/logo/Selenium%20Grid.png" alt="Selenium Grid" style="max-width: 100%;"></a>
 <a href="https://www.jetbrains.com/idea/" rel="nofollow"><img width="11%" title="IntelliJ IDEA" src="images/logo/Intelij_IDEA.svg" alt="Intellij_IDEA" style="max-width: 100%;"></a>
 <a href="https://www.java.com/" rel="nofollow"><img width="11%" title="Java" src="images/logo/Java.svg" alt="Java" style="max-width: 100%;"></a>
 <a href="https://allurereport.org/" rel="nofollow"><img width="11%" title="Allure Report" src="images/logo/Allure_Report.svg" alt="Allure_Report" style="max-width: 100%;"></a>
-<a href="https://maven.org/" rel="nofollow"><img width="11%" title="Gradle" src="images/logo/Maven.svg" alt="Gradle" style="max-width: 100%;"></a>
-<a href="https://www.githubactions.io/" rel="nofollow"><img width="11%" title="Github Actions" src="images/logo/Jenkins.svg" alt="Jenkins" style="max-width: 100%;"></a>
+<a href="https://maven.apache.org/" rel="nofollow"><img width="11%" title="Maven" src="images/logo/Maven.svg" alt="Maven" style="max-width: 100%;"></a>
+<a href="https://github.com/features/actions" rel="nofollow"><img width="11%" title="Github Actions" src="images/logo/Github%20Actions.svg.svg" alt="Jenkins" style="max-width: 100%;"></a>
 <a href="https://github.com/"><img width="12%" title="GitHub" src="images/logo/GitHub.svg" alt="GitHub" style="max-width: 100%;"></a>
-<a href="https://selenium.io/" rel="nofollow"><img width="11%" title="Selenium" src="images/logo/Selenium.png" alt="RestAssured" style="max-width: 100%;"></a>
-<a href="https://seleniumgrid.io/" rel="nofollow"><img width="11%" title="Selenium Grid" src="images/logo/Selenium%20Grid.png" alt="RestAssured" style="max-width: 100%;"></a>
-<a href="https://junit.org/" rel="nofollow"><img width="12%" title="TestNG" src="images/logo/JUnit5.svg" alt="TestNG" style="max-width: 100%;"></a>
+<a href="https://junit.org/junit5/" rel="nofollow"><img width="12%" title="JUnit5" src="images/logo/JUnit5.svg" alt="JUnit5" style="max-width: 100%;"></a>
 
 </p>
 
