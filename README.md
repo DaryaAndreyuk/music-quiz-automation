@@ -4,7 +4,7 @@
 
 ## Contents:
 
-- [Technology stack used](https://github.com/DaryaAndreyuk/PetStoreAPITesting/tree/fb_DaryaAndreyuk_8_AddReadMe?tab=readme-ov-file#technology-stack-used)
+- [Technology stack used](https://github.com/DaryaAndreyuk/music-quiz-automation/tree/fb_DaryaAndreyuk_18_AddReadMe?tab=readme-ov-file#technology-stack-used)
 - [Running the Tests from the terminal](https://github.com/DaryaAndreyuk/PetStoreAPITesting/tree/fb_DaryaAndreyuk_8_AddReadMe?tab=readme-ov-file#running-the-tests)
 - [Viewing Allure Reports](https://github.com/DaryaAndreyuk/PetStoreAPITesting/tree/fb_DaryaAndreyuk_8_AddReadMe?tab=readme-ov-file#viewing-allure-reports)
 - [Build with Github Actions](https://github.com/DaryaAndreyuk/PetStoreAPITesting/tree/fb_DaryaAndreyuk_8_AddReadMe?tab=readme-ov-file#build-with-jenkins)
@@ -28,7 +28,12 @@ In this project, automated tests are written in `Java 21` using the `Selenium` f
 
 - `Maven` is used as the build tool.
 - `JUnit5` is the testing framework.
-- `Allure` is applied for generating test reports.
+- `Allure` is integrated for generating test reports.
+- The `Page Object Model` design pattern is implemented to separate the test logic from the UI structure, making the code more maintainable and reusable.
+- For remote test execution, the project is set up with `Github Actions` which builds the tests, generates an `Allure` report, and publishes the results on `Github Pages`.
+- Configured cloud-based testing with `Selenium Grid` for distributed and parallel test execution.
+- Ensured security by masking sensitive data in the reports and automation processes.
+- Implemented parameterized testing to optimize test case flexibility and scalability using `JUnit` annotations
 
 ## Running the Tests
 
@@ -44,7 +49,6 @@ After running the tests, you can view the Allure reports by executing:
 
 ## Example of Allure Report
 
-<img src="images/AllureExample.png" alt="AllureReportExample" />
 
 ## Report with test results
 
