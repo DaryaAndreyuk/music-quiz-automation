@@ -18,7 +18,7 @@
 <a href="https://www.java.com/" rel="nofollow"><img width="11%" title="Java" src="images/logo/Java.svg" alt="Java" style="max-width: 100%;"></a>
 <a href="https://allurereport.org/" rel="nofollow"><img width="11%" title="Allure Report" src="images/logo/Allure_Report.svg" alt="Allure_Report" style="max-width: 100%;"></a>
 <a href="https://maven.apache.org/" rel="nofollow"><img width="11%" title="Maven" src="images/logo/Maven.svg" alt="Maven" style="max-width: 100%;"></a>
-<a href="https://github.com/features/actions" rel="nofollow"><img width="11%" title="Github Actions" src="images/logo/Github%20Actions.svg.svg" alt="Jenkins" style="max-width: 100%;"></a>
+<a href="https://github.com/features/actions" rel="nofollow"><img width="11%" title="Github Actions" src="images/logo/Github%20Actions.svg" alt="Github Actions" style="max-width: 100%;"></a>
 <a href="https://github.com/"><img width="12%" title="GitHub" src="images/logo/GitHub.svg" alt="GitHub" style="max-width: 100%;"></a>
 <a href="https://junit.org/junit5/" rel="nofollow"><img width="12%" title="JUnit5" src="images/logo/JUnit5.svg" alt="JUnit5" style="max-width: 100%;"></a>
 
