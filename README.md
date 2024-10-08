@@ -114,7 +114,7 @@ After running the tests, you can view the Allure reports by executing:
 <img src="images/screens/GoToActions.png" alt="Go To Actions" />
 
 
-2. Press the `pages and deployment` tab
+2. Click on the `pages and deployment` link
 
 <img src="images/screens/GoToPagesDeployments.png" alt="Go To Pages Deployments" />
 
