@@ -68,11 +68,11 @@ Make sure each field corresponds to the expected format and content based on you
 
 To execute all the tests, run the following command in the CLI: `mvn clean test -Pregression-tests`
 
-To execute only smoke tests, run the following command in the CLI: `mvn clean test -Psmoke-tests`
+For only smoke tests: `mvn clean test -Psmoke-tests`
 
-To execute only positive tests, run the following command in the CLI: `mvn clean test -Ppositive-tests`
+For only positive tests: `mvn clean test -Ppositive-tests`
 
-To execute only negative tests, run the following command in the CLI: `mvn clean test -Pnegative-tests`
+For only negative tests: `mvn clean test -Pnegative-tests`
 
 ## Viewing Allure Reports
 
