@@ -88,14 +88,24 @@ After running the tests, you can view the Allure reports by executing:
 
 <img src="images/screens/AllureSteps.png" alt="Allure Steps" />
 
-
 ## Build with Github Actions
 
 1. Go to `music-quiz-automation` repository
 2. Press to `Actions` tab
+   
+<img src="images/screens/Step1_Actions_Tab.png" alt="Step1 Actions Tab" />
+
 3. Press `Full Regression Test` workflow (on the left panel)
+
+<img src="images/screens/Step2_FullRegrTest_Tab.png" alt="Step2 FullRegressionTest Tab" />
+
 4. Press `Run workflow` button
+
+<img src="images/screens/Step3_Run_workflow.png" alt="Step3 Run worflow" />
+ 
 5. Wait till the build will be completed.
+
+<img src="images/screens/ Ste4_wait_for build_completes.png" alt="Step4 Wait for build completed" />
 
 ## See Allure Report from Github Pages
 
