@@ -105,7 +105,7 @@ After running the tests, you can view the Allure reports by executing:
  
 5. Wait till the build will be completed.
 
-<img src="images/screens/ Ste4_wait_for build_completes.png" alt="Step4 Wait for build completed" />
+<img src="images/screens/Ste4_wait_for build_completes.png" alt="Step4 Wait for build completed" />
 
 ## See Allure Report from Github Pages
 
