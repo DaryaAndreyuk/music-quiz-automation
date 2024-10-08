@@ -5,7 +5,7 @@
 ## Contents:
 
 - [Technology stack used](https://github.com/DaryaAndreyuk/music-quiz-automation/tree/fb_DaryaAndreyuk_18_AddReadMe?tab=readme-ov-file#technology-stack-used)
-- [Instructions to Create a Valid `Sheet.xlsx` File](https://github.com/DaryaAndreyuk/music-quiz-automation/tree/fb_DaryaAndreyuk_18_AddReadMe?tab=readme-ov-file#instructions-to-create-a-valid-sheetxlsx-file)]
+- [Instructions to Create a Valid `Sheet.xlsx` File](https://github.com/DaryaAndreyuk/music-quiz-automation/tree/fb_DaryaAndreyuk_18_AddReadMe?tab=readme-ov-file#instructions-to-create-a-valid-sheetxlsx-file)
 - [Running the Tests from the terminal](https://github.com/DaryaAndreyuk/music-quiz-automation/tree/fb_DaryaAndreyuk_18_AddReadMe?tab=readme-ov-file#running-the-tests)
 - [Viewing Allure Reports](https://github.com/DaryaAndreyuk/music-quiz-automation/tree/fb_DaryaAndreyuk_18_AddReadMe?tab=readme-ov-file#viewing-allure-reports)
 - [Build with Github Actions](https://github.com/DaryaAndreyuk/music-quiz-automation/tree/fb_DaryaAndreyuk_18_AddReadMe?tab=readme-ov-file#build-with-github-actions)
