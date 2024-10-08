@@ -109,6 +109,13 @@ After running the tests, you can view the Allure reports by executing:
 
 ## See Allure Report from Github Pages
 
+1. After build completed go to `Actions` tab again
+
+<img src="images/screens/GoToActions.png" alt="Go To Actions" />
+<img src="images/screens/GoToPagesDeployments.png" alt="Go To Pages Deployments" />
+<img src="images/screens/PressLink.png" alt="Press Link" />
+<img src="images/screens/SeeAllureReport.png" alt="See Allure Report" />
+
 
 
 
