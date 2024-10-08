@@ -112,8 +112,19 @@ After running the tests, you can view the Allure reports by executing:
 1. After build completed go to `Actions` tab again
 
 <img src="images/screens/GoToActions.png" alt="Go To Actions" />
+
+
+2. Press the `pages and deployment` tab
+
 <img src="images/screens/GoToPagesDeployments.png" alt="Go To Pages Deployments" />
+
+
+3. Click on the link
 <img src="images/screens/PressLink.png" alt="Press Link" />
+
+
+4. Now you can see Allure report
+
 <img src="images/screens/SeeAllureReport.png" alt="See Allure Report" />
 
 
