@@ -89,7 +89,7 @@ After running the tests, you can view the Allure reports by executing:
 <img src="images/screens/AllureSteps.png" alt="Allure Steps" />
 
 
-## Video how to build with Github Actions
+## Build with Github Actions
 
 
 
