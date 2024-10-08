@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="555caa66-574e-41a6-8fab-ef369794be42" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/pages/UpcomingGamesPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/pages/UpcomingGamesPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +22,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "DaryaAndreyuk"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/DaryaAndreyuk/music-quiz-automation&quot;,
+    &quot;accountId&quot;: &quot;6a2f7019-bde1-4ad2-85dd-b4ac7ef9dd98&quot;
+  }
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -68,7 +78,7 @@
     &quot;JUnit.RegistrationTeamTest.teamDataInExcelValidation.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.TitleTest.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;fb__DaryaAndreyuk__16__AddJobManualTrigger&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;fb__DaryaAndreyuk__18__AddReadMe&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_directory_selection&quot;: &quot;I:/idea-workspace/MusicQuizAutomation/src/test/java&quot;,
     &quot;last_opened_file_path&quot;: &quot;I:/idea-workspace/MusicQuizAutomation/src/test/resources/data&quot;,

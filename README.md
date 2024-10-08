@@ -1,4 +1,40 @@
-# MusicQuizAutomation
+# Music Quiz UI Automation framework
+
+## This is portfolio project on automation of test scripts using UI tests for  [wro.mzgb.net](https://wro.mzgb.net/)
+
+## Contents:
+
+- [Technology stack used](https://github.com/DaryaAndreyuk/music-quiz-automation/tree/fb_DaryaAndreyuk_18_AddReadMe?tab=readme-ov-file#technology-stack-used)
+- [Instructions to Create a Valid `Sheet.xlsx` File](https://github.com/DaryaAndreyuk/music-quiz-automation/tree/fb_DaryaAndreyuk_18_AddReadMe?tab=readme-ov-file#instructions-to-create-a-valid-sheetxlsx-file)
+- [Running the Tests from the terminal](https://github.com/DaryaAndreyuk/music-quiz-automation/tree/fb_DaryaAndreyuk_18_AddReadMe?tab=readme-ov-file#running-the-tests)
+- [Viewing Allure Reports](https://github.com/DaryaAndreyuk/music-quiz-automation/tree/fb_DaryaAndreyuk_18_AddReadMe?tab=readme-ov-file#viewing-allure-reports)
+- [Build with Github Actions](https://github.com/DaryaAndreyuk/music-quiz-automation/tree/fb_DaryaAndreyuk_18_AddReadMe?tab=readme-ov-file#build-with-github-actions)
+
+## Technology stack used
+
+<p align="center" dir="auto">
+<a href="https://www.selenium.dev/" rel="nofollow"><img width="9%" title="Selenium" src="images/logo/Selenium.png" alt="Selenium" style="max-width: 100%;"></a>
+<a href="https://www.selenium.dev/documentation/grid/" rel="nofollow"><img width="9%" title="Selenium Grid" src="images/logo/Selenium%20Grid.png" alt="Selenium Grid" style="max-width: 100%;"></a>
+<a href="https://www.jetbrains.com/idea/" rel="nofollow"><img width="9%" title="IntelliJ IDEA" src="images/logo/Intelij_IDEA.svg" alt="Intellij_IDEA" style="max-width: 100%;"></a>
+<a href="https://www.java.com/" rel="nofollow"><img width="9%" title="Java" src="images/logo/Java.svg" alt="Java" style="max-width: 100%;"></a>
+<a href="https://allurereport.org/" rel="nofollow"><img width="9%" title="Allure Report" src="images/logo/Allure_Report.svg" alt="Allure_Report" style="max-width: 100%;"></a>
+<a href="https://maven.apache.org/" rel="nofollow"><img width="9%" title="Maven" src="images/logo/Maven.svg" alt="Maven" style="max-width: 100%;"></a>
+<a href="https://github.com/features/actions" rel="nofollow"><img width="9%" title="Github Actions" src="images/logo/Github%20Actions.svg" alt="Github Actions" style="max-width: 100%;"></a>
+<a href="https://github.com/"><img width="9%" title="GitHub" src="images/logo/GitHub.svg" alt="GitHub" style="max-width: 100%;"></a>
+<a href="https://junit.org/junit5/" rel="nofollow"><img width="9%" title="JUnit5" src="images/logo/JUnit5.svg" alt="JUnit5" style="max-width: 100%;"></a>
+
+</p>
+
+In this project, automated tests are written in `Java 21` using the `Selenium` framework for UI testing.
+
+- `Maven` is used as the build tool.
+- `JUnit5` is the testing framework.
+- `Allure` is integrated for generating test reports.
+- The `Page Object Model` design pattern is implemented to separate the test logic from the UI structure, making the code more maintainable and reusable.
+- For remote test execution, the project is set up with `Github Actions` which builds the tests, generates an `Allure` report, and publishes the results on `Github Pages`.
+- Configured cloud-based testing with `Selenium Grid` for distributed and parallel test execution.
+- Ensured security by masking sensitive data in the reports and automation processes.
+- Implemented parameterized testing to optimize test case flexibility and scalability using `JUnit` annotations
 
 ## Instructions to Create a Valid `Sheet.xlsx` File
 
@@ -12,7 +48,7 @@ A template file named `SheetTemplate.xlsx` is provided in the repository at `src
 
 Copy the `SheetTemplate.xlsx` file to create a new file named `Sheet.xlsx` in the same directory.
 
- ### Step 3: Open the Sheet.xlsx file in Excel or any other spreadsheet editor.
+### Step 3: Open the Sheet.xlsx file in Excel or any other spreadsheet editor.
 Make sure to fill in the required data fields as shown below:
 
 ### Example `Sheet.xlsx`
@@ -27,4 +63,74 @@ Here’s a detailed view of what the `SheetTemplate.xlsx` file should contain:
 | Password            | strongpass!@#$%57 |
 
 Make sure each field corresponds to the expected format and content based on your application's requirements.
+
+## Running the Tests
+
+To execute all the tests, run the following command in the CLI: `mvn clean test -Pregression-tests`
+
+For only smoke tests: `mvn clean test -Psmoke-tests`
+
+For only positive tests: `mvn clean test -Ppositive-tests`
+
+For only negative tests: `mvn clean test -Pnegative-tests`
+
+## Viewing Allure Reports
+
+After running the tests, you can view the Allure reports by executing:
+
+`mvn allure:report`
+
+## Example of Allure Report
+
+<img src="images/screens/AllureExample.png" alt="AllureReportExample" />
+
+## Report with test results
+
+<img src="images/screens/AllureSteps.png" alt="Allure Steps" />
+
+## Build with Github Actions
+
+1. Go to `music-quiz-automation` repository
+2. Press to `Actions` tab
+   
+<img src="images/screens/Step1_Actions_Tab.png" alt="Step1 Actions Tab" />
+
+3. Press `Full Regression Test` workflow (on the left panel)
+
+<img src="images/screens/Step2_FullRegrTest_Tab.png" alt="Step2 FullRegressionTest Tab" />
+
+4. Press `Run workflow` button
+
+<img src="images/screens/Step3_Run_workflow.png" alt="Step3 Run worflow" />
+ 
+5. Wait till the build will be completed.
+
+<img src="images/screens/Ste4_wait_for build_completes.png" alt="Step4 Wait for build completed" />
+
+## See Allure Report from Github Pages
+
+1. After build completed go to `Actions` tab again
+
+<img src="images/screens/GoToActions.png" alt="Go To Actions" />
+
+
+2. Click on the `pages and deployment` link
+
+<img src="images/screens/GoToPagesDeployments.png" alt="Go To Pages Deployments" />
+
+
+3. Click on the link
+<img src="images/screens/PressLink.png" alt="Press Link" />
+
+
+4. Now you can see Allure report
+
+<img src="images/screens/SeeAllureReport.png" alt="See Allure Report" />
+
+
+
+
+If you have any comments or suggestions, please feel free to contact me
+at: [dasha.andreyuk@gmail.com](dasha.andreyuk@gmail.com)
+
 
