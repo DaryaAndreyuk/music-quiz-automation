@@ -5,7 +5,7 @@
 ## Contents:
 
 - [Technology stack used](https://github.com/DaryaAndreyuk/music-quiz-automation/tree/fb_DaryaAndreyuk_18_AddReadMe?tab=readme-ov-file#technology-stack-used)
-- [Instructions to Create a Valid `Sheet.xlsx` File] (https://github.com/DaryaAndreyuk/music-quiz-automation/tree/fb_DaryaAndreyuk_18_AddReadMe?tab=readme-ov-file#instructions-to-create-a-valid-sheet-xslx-file)
+- [Instructions to Create a Valid `Sheet.xlsx` File](https://github.com/DaryaAndreyuk/music-quiz-automation/tree/fb_DaryaAndreyuk_18_AddReadMe?tab=readme-ov-file#instructions-to-create-a-valid-sheetxlsx-file)] (https://github.com/DaryaAndreyuk/music-quiz-automation/tree/fb_DaryaAndreyuk_18_AddReadMe?tab=readme-ov-file#instructions-to-create-a-valid-sheetxlsx-file)
 - [Running the Tests from the terminal](https://github.com/DaryaAndreyuk/music-quiz-automation/tree/fb_DaryaAndreyuk_18_AddReadMe?tab=readme-ov-file#running-the-tests)
 - [Viewing Allure Reports](https://github.com/DaryaAndreyuk/music-quiz-automation/tree/fb_DaryaAndreyuk_18_AddReadMe?tab=readme-ov-file#viewing-allure-reports)
 - [Build with Github Actions](https://github.com/DaryaAndreyuk/music-quiz-automation/tree/fb_DaryaAndreyuk_18_AddReadMe?tab=readme-ov-file#build-with-github-actions)
@@ -35,7 +35,6 @@ In this project, automated tests are written in `Java 21` using the `Selenium` f
 - Configured cloud-based testing with `Selenium Grid` for distributed and parallel test execution.
 - Ensured security by masking sensitive data in the reports and automation processes.
 - Implemented parameterized testing to optimize test case flexibility and scalability using `JUnit` annotations
-
 
 ## Instructions to Create a Valid `Sheet.xlsx` File
 
@@ -90,7 +89,7 @@ After running the tests, you can view the Allure reports by executing:
 <img src="images/screens/AllureSteps.png" alt="Allure Steps" />
 
 
-## Build with Github Actions
+## Video how to build with Github Actions
 
 
 
